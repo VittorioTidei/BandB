@@ -1,0 +1,32 @@
+<section class="d-flex vh-100">
+
+  <div class="col-6 img-wrapper d-none d-md-block">
+  </div>
+
+  <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+    <img src="../../assets/LOGIN.png" alt="logo" class="mb-4">
+    <h1 class="style-text fw-bold">Bentornato</h1>
+    
+
+    <form #f="ngForm" class="d-flex flex-column col-11 col-sm-8 gap-2">
+        <span>Email</span>
+        <input class="username rounded-2 ps-3 pe-3 style-input" type="username" id="user" name="username" placeholder="username" ngModel>
+
+        <span>Password</span>
+        <input class="password rounded-2 ps-3 pe-3 style-input" type="password" id="pass" name="password"  placeholder="password" ngModel>
+      
+      <div class="forget-pass d-flex justify-content-between">
+        <div>
+          <input type="checkbox">
+        <span>Ricordami</span>
+        </div>
+        <a class="anchor-link" href="#">Password dimenticata?</a>
+      </div>
+
+      <button type="submit" class="btn-style" (click)="login(f)">Accedi</button>
+      <a class="anchor-link" [routerLink]="['/signup']" >Registrati</a>
+    </form>
+
+  </div>
+
+</section>

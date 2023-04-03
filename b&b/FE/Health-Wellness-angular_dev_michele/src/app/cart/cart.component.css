@@ -1,0 +1,23 @@
+.table-row > div{
+    border: 1px solid black;
+  }
+  .btn-style{
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+    background-color: #D58B40;
+    border: none;
+    transition: all 150ms ease-in-out;
+  }
+  
+  .check-btn{
+    background-color: #6F8516;
+  }
+  .btn-style:hover{
+    background-color: #6F8516;
+  }
+  .bottons{
+    padding: 20px;
+  }
+  
+  

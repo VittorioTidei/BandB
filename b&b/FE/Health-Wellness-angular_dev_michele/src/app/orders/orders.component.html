@@ -1,0 +1,25 @@
+<div class="back"> 
+  <div class="container px-5">
+  <h1>
+    Orders
+  </h1>
+  <ul *ngFor="let order of orders">
+    <li >
+      <div class="row">
+        <div class="col">
+          <p>
+            ordine da:
+            {{order.totalPrice.toString()}}
+          </p>
+        </div>
+        <div class="col align-items-right"> 
+          <button class="btn-style btn-info" (click)="showProductsList()">Mostra Lista Prodotti</button>
+        </div>
+      </div>
+      <div *ngIf="show">
+        <app-productorderlist></app-productorderlist>
+      </div>
+    </li>
+  </ul>
+  </div>
+</div>

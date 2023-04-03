@@ -1,0 +1,26 @@
+.card-product-list {
+    border-radius:15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    overflow: hidden;
+}
+
+.bg-cream {
+    background-color: #fff8e8;
+    padding:0
+}
+
+.center{
+    background-color: beige;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.img-product-card {
+    height:220px;
+    overflow:hidden
+}
+
+.img-product-card img {
+    height:100%
+}

@@ -1,0 +1,46 @@
+<div class="container rounded">
+<div class="row center rounded">
+  <div class="col img-product-card ">
+    <!-- put immage inside here-->
+    <img class="rounded" src="/assets/product-example.jpg"/>
+  </div>
+  <div class="col">
+    <!-- put infos here-->
+    <h3 class="title">{{center.name}}</h3>
+    <div class="treatment-name">{{center.website}}</div>
+    <div class="price-label">{{center.email}}</div>
+    <p class="product-description">{{center.email}}</p>
+  </div>
+</div>
+<div class="row space">
+  <!-- put some space dor content here-->
+</div>
+<div class="row">
+  <!-- put product list here-->
+    <div class="col-6 col-md-6 col-sm-12 p-4 pt-1 pb-1" *ngFor="let item of products">
+      <div class="row card-product-list">
+        <div class="col-6 col-md-4 p-0 img-product-card">
+          <img src="/assets/product-example.jpg"/>
+        </div>
+        <div class="col-6 col-md-8 p-3 bg-cream">
+          <div class="row treatment-name">{{item.treatment.name}}</div>
+          <div class=" row price-label">{{item.currentPrice}}</div>
+          <div class="row">
+            <h3 class="title">{{item.title}}</h3>
+            <p class="product-description">{{item.description}}</p>
+            <a href="#" class="goto-product">Vai al prodotto >></a>
+            il {{item.qty}}
+          </div>
+          <div class="row">
+            <select class="select-style" id="idCategory" name="idCategory" (click)="retriveList(item.qty)" [(ngModel)]="selectOption" >
+              <option *ngFor="let i of numbers" > {{i}}</option>
+            </select>
+          </div>
+          <div class="row">
+            <button class="btn" (click)="addProductToCart(item.id,selectOption)"> acquisto </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

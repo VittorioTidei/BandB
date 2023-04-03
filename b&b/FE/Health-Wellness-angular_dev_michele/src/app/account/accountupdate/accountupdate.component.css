@@ -1,0 +1,22 @@
+
+.infos{
+    background-color: #FFF8E8;
+}
+
+.h-50{
+    height: 50%;
+}
+
+.btn-style{
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+    background-color: #D58B40;
+    border: none;
+    transition: all 150ms ease-in-out;
+}
+
+.style{
+    text-align: center;
+     margin-top: 1.5rem;
+}

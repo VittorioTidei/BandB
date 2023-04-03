@@ -1,0 +1,35 @@
+<div class="style-table">
+
+  <div class="table-row d-flex">
+    <div *ngFor="let product of ProductCartList">
+      <div class="col-2">creato alle</div>
+      <div class="col-5">
+        <p>{{product.createdAt}}</p>
+      </div>
+      <div class="col-2">aggiornato alle</div>
+      <div class="col-5">
+        <p>{{product.updatedAt}}</p>
+      </div>
+      <div class="col-2">quantità</div>
+      <div class="col-5">
+        <p>{{product.qty}}</p>
+      </div>
+      <div class="col-2">prodotto</div>
+      <div class="col-5">
+        <p>{{product.product}}</p>
+      </div>
+      <div class="col-2">pagamento</div>
+      <div class="col-5">
+        <p>{{payment.name}}</p>
+      </div>
+      <div class="col-2">data</div>
+      <div class="col-5">
+        <p>{{payment.data}}</p>
+      </div>
+    </div>  
+  </div>
+  
+    <div class="bottons">
+      <button class="anchor-link btn-style me-3" [ngClass]="{'check-btn': checkconfirm}" (click)="convert()">Conferma</button>
+      <button class="anchor-link btn-style" [routerLink]="['/home']" >Vai alla schermata home</button>
+    </div>

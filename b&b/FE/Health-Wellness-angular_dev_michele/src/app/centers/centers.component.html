@@ -1,0 +1,24 @@
+<div class="back"> 
+  <div class="container px-5">
+  <h1>
+    Centers
+  </h1>
+<div *ngFor="let center of centers">
+  <div *ngFor="let center of center.centerList">
+    <div class="row">
+      <div class="col-6">
+        <h5>{{center.name}}</h5>
+      </div>
+      <div class="col-6">
+        <h5>{{center.description}}</h5>
+      </div>
+      <div class="btn-style">
+        <button class="btn-style col-8 m-1 btn-style btn btn-info"  (click)="productsOrderList()"> Visualizza prodotti -> </button>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+<app-centerfilter centerList="centerList"></app-centerfilter>

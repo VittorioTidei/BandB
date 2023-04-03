@@ -1,0 +1,52 @@
+    <div>
+      <div class="container">
+      <div class="form-group">
+      <div class="navbar bg-green-hw shadow-sm nav-pills col-3 col-md-6 p-3" class="box">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['treatmentList']">Trattamento</a>
+              <select class="form-control" id="search" required  [(ngModel)]="selectOption">
+                <option *ngFor="let tre of treatmentLIst" [value]="tre">{{tre.name}}</option>
+              </select>
+          </li>
+          <li>
+            <div class="row card-product-list">
+              <button class="btn-style col-8 m-lg-3"  (click)="main(selectOption)"> Cerca </button>
+            </div>
+          </li>
+      </ul>
+      <a [routerLink]="['main']" class="navbar-brand d-flex align-items-center">
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>-->
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <h2>Selezionati per te</h2>
+</div>
+<div class="row">
+  <div class="col-6 col-md-6 col-sm-12 p-4 pt-1 pb-1" *ngFor="let item of products">
+    <div class="row card-product-list">
+      <div class="col-6 col-md-4 p-0 img-product-card">
+        <img src="/assets/product-example.jpg"/>
+      </div>
+      <div class="col-6 col-md-8 p-3 bg-cream">
+        <div class="row treatment-name">{{item.treatment.name}}</div>
+        <div class=" row price-label">{{item.currentPrice}}</div>
+        <div class="row">
+          <h3 class="title">{{item.title}}</h3>
+          <p class="product-description">{{item.description}}</p>
+          <a href="#" class="goto-product">Vai al prodotto >></a>
+          il {{item.qty}}
+        </div>
+        <div class="row">
+          <select class="select-style" id="idCategory" name="idCategory" (click)="retriveList(item.qty)" [(ngModel)]="selectOption" >
+            <option *ngFor="let i of numbers" > {{i}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <button class="btn" class="btn-style col-6 m-lg-3 " (click)="addProductToCart(item.id,selectOption)"> acquisto </button>
+        </div>
+      </div>
+    </div>
+</div>

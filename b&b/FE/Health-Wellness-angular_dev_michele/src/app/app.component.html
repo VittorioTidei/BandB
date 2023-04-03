@@ -1,0 +1,9 @@
+<app-header *ngIf="showComp"></app-header>
+
+<main>
+        <router-outlet></router-outlet>
+</main>
+
+<app-footer *ngIf="showComp"></app-footer>
+
+<!--Qui viene mostrato il contenuto del routing del primo livello (parent). NON aggiungere template qui!-->

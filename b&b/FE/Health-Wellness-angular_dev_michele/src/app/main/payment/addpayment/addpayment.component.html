@@ -1,0 +1,15 @@
+<div class="style-table">
+
+  <div class="table-row d-flex">
+    <form #f="ngForm" class="col-2">
+      <span>nome</span>
+      <input class="col-6" type="name" id="payment" name="name" placeholder="name" ngModel>
+      <span>data</span>
+      <input class="col-6" type="data" id="da" name="data"  placeholder="data" ngModel>
+    </form>      
+  </div>
+</div>
+<div class="bottons">
+  <button class="anchor-link btn-style me-3" [ngClass]="{'check-btn': checkconfirm}" (click)="addPayment()">Aggiungi Pagamento</button>
+  <button class="anchor-link btn-style" [routerLink]="['/home']" >Vai alla schermata home</button>
+</div>
