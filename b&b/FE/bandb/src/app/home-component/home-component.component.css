@@ -1,10 +1,13 @@
-.section-border{
-    background-image: url("../../assets/img/waves.gif");
-    background-blend-mode: darken;
+.section-border .container{
+    background-image: url("../../assets/img/waves.png");
     justify-content: center;
     max-width: 100%;
     height: auto;
     background-repeat: no-repeat;
+}
+
+.section-border {
+    
 }
 
 .house-image{
