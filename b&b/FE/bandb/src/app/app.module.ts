@@ -27,4 +27,5 @@ import { PrenotazioneComponent } from './appCalendario/prenotazione/prenotazione
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

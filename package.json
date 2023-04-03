@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "glightbox": "^3.2.0",
+    "ngx-bootstrap": "^10.2.0"
+  }
+}
