@@ -1,5 +1,6 @@
 .section-border{
     background-image: url("../../assets/img/waves.gif");
+    background-blend-mode: darken;
     justify-content: center;
     max-width: 100%;
     height: auto;
