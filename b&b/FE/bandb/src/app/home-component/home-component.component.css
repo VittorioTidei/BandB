@@ -1,11 +1,15 @@
 .section-border{
-    background-image: url("../../assets/img/waves.png");
+    /* background-image: url("../../assets/img/waves.png");
     background-clip: border-box;
     background-size: auto;
     justify-content: center;
     max-width: 100%;
     height: auto;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../../assets/img/waves.png");
+    background-size: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .about-img{
