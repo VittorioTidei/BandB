@@ -1,13 +1,11 @@
-.section-border .container{
+.section-border{
     background-image: url("../../assets/img/waves.png");
+    background-clip: border-box;
+    background-size: auto;
     justify-content: center;
     max-width: 100%;
     height: auto;
     background-repeat: no-repeat;
-}
-
-.section-border {
-    
 }
 
 .house-image{
