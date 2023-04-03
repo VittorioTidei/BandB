@@ -8,7 +8,8 @@
     background-repeat: no-repeat;
 }
 
-.house-image{
+.about-img{
     background-image: url("../../assets/img/house.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
