@@ -16,3 +16,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.carousel-wrapper img{
+    max-height: 30em;
+    object-fit: contain;
+}
+
