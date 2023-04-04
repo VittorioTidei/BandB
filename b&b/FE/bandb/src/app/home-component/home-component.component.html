@@ -6,14 +6,29 @@
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h2>Goditi la tua vacanza<br>La magia del Conero</h2>
-          <p>Ti accompagneremo nelle tue vacanze in questo meraviglioso angolo d'Italia dove la montagna e il mare si baciano</p>
+          <ngb-carousel 
+          [showNavigationArrows]="false"
+          [interval]="10000"
+          [showNavigationIndicators]="false">
+            <ng-template ngbSlide>
+              <p>Il suono delle onde e l'odore del mare aggiungono un'aura di serenità alla tua vacanza.</p>
+            </ng-template>
+            <ng-template ngbSlide>
+              <p>La vista delle barche che dondolano in riva al mare e delle case colorate che si affacciano sulla costa crea un'atmosfera unica di pittoresca bellezza.</p>
+            </ng-template>
+            <ng-template ngbSlide>
+              <p>Camminare lungo il lungomare di Marcelli, con le acque blu del mare che si estendono all'infinito, è un'esperienza che cattura la bellezza e la pace del luogo.</p>
+            </ng-template>
+            <ng-template ngbSlide>
+              <p>I tramonti spettacolari sulla spiaggia, con i colori caldi del sole che si riflettono sulle onde, creano un'atmosfera di incantevole bellezza che rimane impressa nella mente per sempre.</p>
+            </ng-template>
+          </ngb-carousel>
           <div class="d-flex">
             <a href="#book-a-table" class="btn-book-a-table">Prenota</a>
-            <a href="https://www.youtube.com/watch?v=r0eEvbd9foc" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Guarda il video</span></a>
           </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="../../assets/img/logoConero.jpg" class="img-fluid rounded-circle" alt="">
+          <img src="../../assets/img/riviera.jpeg" class="img-fluid rounded" alt="">
         </div>
       </div>
     </div>
@@ -34,11 +49,14 @@
           <div class="col-lg-7 position-relative about-img">
             <div class="call-us position-absolute">
               <h4>Prenota</h4>
-              <p>+1 5589 55488 55</p>
+              <p>+39 3333635592</p>
             </div>
           </div>
           <div class="col-lg-5 d-flex align-items-end">
             <div class="content ps-0 ps-lg-5">
+
+              
+
               <p class="fst-italic">
                 Trascorrerai la tua vacanza a 2 passi dalla meravigliosa costa del Coreno.
               </p>
@@ -52,8 +70,9 @@
               </p>
 
               <div class="position-relative mt-4">
-                <img src="../../assets/img/costa.jpg" class="img-fluid rounded" alt="">
-                <a href="https://www.youtube.com/watch?v=MVNm39gl66M" class="glightbox play-btn"></a>
+                <iframe class="img-fluid rounded" width="560" height="315" src="https://www.youtube.com/embed/xARSRVbqQl8?start=10" title="Numana No Stress Zone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <!-- <img src="../../assets/img/costa.jpg" class="img-fluid rounded" alt="">
+                <a href="https://www.youtube.com/watch?v=xARSRVbqQl8" class="glightbox play-btn"></a> -->
               </div>
             </div>
           </div>
@@ -134,20 +153,16 @@
         </div>
 
         <div class="container-fluid">
-          <h1>
-          Angular 13 Carousel Example
-          </h1>
-          <h2>Full tutorial in Techiediaries</h2>
 
           <ul ngbNav #nav="ngbNav" class="nav nav-tabs d-flex justify-content-center">
             <li ngbNavItem class="nav-item">
-              <button ngbNavLink>First</button>
+              <button ngbNavLink>101</button>
               <ng-template ngbNavContent>
                 
                 <ngb-carousel>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/1.jpeg" alt="Angular Carousel 1">
+                    <img src="../../assets/img/camere/101/1.jpeg" alt="">
                   </div>
                   <div class="carousel-caption">
                     <h3>Title Goes Here</h3>
@@ -156,7 +171,7 @@
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/placeholder2.jpeg" alt="Angular Carousel 2">
+                    <img src="../../assets/img/camere/101/placeholder2.jpeg" alt="">
                   </div>
                   <div class="carousel-caption">
                     <h3>Title Goes Here</h3>
@@ -167,9 +182,20 @@
             
             </ng-template>
             </li>
+
             <li ngbNavItem class="nav-item">
-              <button ngbNavLink>Second</button>
+              <button ngbNavLink>102</button>
               <ng-template ngbNavContent>Second content</ng-template>
+            </li>
+
+            <li ngbNavItem class="nav-item">
+              <button ngbNavLink>103</button>
+              <ng-template ngbNavContent>Third content</ng-template>
+            </li>
+
+            <li ngbNavItem class="nav-item">
+              <button ngbNavLink>104</button>
+              <ng-template ngbNavContent>Fourth content</ng-template>
             </li>
           </ul>
           <div [ngbNavOutlet]="nav"></div>

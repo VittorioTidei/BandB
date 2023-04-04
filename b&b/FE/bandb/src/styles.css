@@ -586,7 +586,7 @@
     right: 10%;
     bottom: 10%;
     background-color: #fff;
-    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.5);
     padding: 20px;
     text-align: center;
   }
@@ -603,6 +603,7 @@
     font-weight: 700;
     color: var(--color-primary);
   }
+
   
   .about .content ul {
     list-style: none;
