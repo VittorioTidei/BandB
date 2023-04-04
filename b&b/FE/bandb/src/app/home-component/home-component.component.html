@@ -162,22 +162,22 @@
                 <ngb-carousel>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/101.jpeg" alt="">
+                    <img [src]="gallery[0]" alt="">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/101-2.jpeg" alt="">
+                    <img [src]="gallery[1]" alt="">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/101-3.jpeg" alt="">
+                    <img [src]="gallery[2]" alt="">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/101/101-4.jpeg" alt="">
+                    <img [src]="gallery[3]" alt="">
                   </div>
                 </ng-template>
               </ngb-carousel>
@@ -203,12 +203,12 @@
                <ngb-carousel>
                <ng-template ngbSlide>
                 <div class="carousel-wrapper">
-                  <img src="../../assets/img/camere/103/103-1.jpeg" alt="103">
+                  <img [src]="gallery[4]" alt="103">
                 </div>
               </ng-template>
               <ng-template ngbSlide>
                 <div class="carousel-wrapper">
-                  <img src="../../assets/img/camere/103/103-2.jpeg" alt="">
+                  <img [src]="gallery[5]" alt="">
                 </div>
               </ng-template>
             </ngb-carousel>
@@ -225,17 +225,17 @@
               <ngb-carousel>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/104/104-2.jpeg" alt="">
+                    <img [src]="gallery[6]" alt="">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/104/104-3.jpeg" alt="">
+                    <img [src]="gallery[7]" alt="">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
-                    <img src="../../assets/img/camere/104/104-4.jpeg" alt="">
+                    <img [src]="gallery[8]" alt="">
                   </div>
                 </ng-template>
               </ngb-carousel>
@@ -321,19 +321,96 @@
           <p>Check <span>Our Gallery</span></p>
         </div>
 
-        <div class="gallery-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-1.jpg"><img src="../../assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-2.jpg"><img src="../../assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-3.jpg"><img src="../../assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-4.jpg"><img src="../../assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-5.jpg"><img src="../../assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-6.jpg"><img src="../../assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-7.jpg"><img src="../../assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../assets/img/gallery/gallery-8.jpg"><img src="../../assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+        <!-- Gallery -->
+        <ngb-carousel>
+          <!-- First Slide -->
+          <ng-template ngbSlide>
+            <div class="row">
+
+              <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <img
+                  [src]="gallery[0]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+                <img
+                  [src]="gallery[1]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+              </div>
+
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                <img
+                  [src]="gallery[2]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+                <img
+                  [src]="gallery[3]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+              </div>
+
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                <img
+                  [src]="gallery[4]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+                <img
+                  [src]="gallery[5]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+              </div>
+
+            </div>
+          </ng-template>
+
+          <!-- Second Slide -->
+          <ng-template ngbSlide>
+            <div class="row">
+
+              <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                <img
+                  [src]="gallery[6]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                />
+                <img
+                  [src]="gallery[7]"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt=""
+                    />
+              </div>
+
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                  <img
+                    [src]="gallery[8]"
+                    class="w-100 shadow-1-strong rounded mb-4"
+                    alt=""
+                  />
+                  <img
+                    [src]="gallery[9]"
+                    class="w-100 shadow-1-strong rounded mb-4"
+                    alt=""
+                  />
+              </div>
+
+              <div class="col-lg-4 mb-4 mb-lg-0">
+                  <img
+                    [src]="gallery[10]"
+                    class="w-100 shadow-1-strong rounded mb-4"
+                    alt=""
+                  />
+              </div>
+
+            </div>
+          </ng-template>
+          
+        </ngb-carousel>
 
       </div>
     </section><!-- End Gallery Section -->
