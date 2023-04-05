@@ -20,5 +20,8 @@ public class PrenotazioneService {
         return prenotazioneRepository.findAll();
     }
 
+    public void addNewPrenotazione(Prenotazione prenotazione) {
+        System.out.println(prenotazione);
+    }
 }
 
