@@ -11,14 +11,14 @@
         <ul>
           <li><a href="#about">About Us</a></li>
           <li><a href="#menu">Le nostre camere</a></li>
-          <!-- <li><a href="#book-a-table">Calendario</a></li> -->
-          <li><a [routerLink]="['nomePath']">Calendario</a></li>
+          <li><a href="#book-a-table">Calendario</a></li>
+          <!--<li><a [routerLink]="['nomePath']">Calendario</a></li> -->
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav><!-- .navbar -->
-      
-      <a class="btn-book-a-table" href="#book-a-table">Prenota</a>
+
+      <a class="btn-book-a-table" [routerLink]="['prenotazione']">Prenota</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
