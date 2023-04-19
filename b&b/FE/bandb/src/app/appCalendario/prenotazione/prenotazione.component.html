@@ -7,40 +7,38 @@
         <div class="row">
             <!-- Form -->
             <div class="col-lg-5">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+                <form (ngSubmit)="send()" [formGroup]="form" class="php-email-form p-3 p-md-4">
                     <div class="row">
                       <div class="col-xl-6 form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
+                        <input type="text" class="form-control" formControlName="nome">
                       </div>
                       <div class="col-xl-6 form-group">
-                        <input type="text" class="form-control" name="surname" id="surname" placeholder="Cognome" required>
+                        <input type="text" class="form-control" formControlName="cognome">
                       </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                        <input type="email" class="form-control" formControlName="email">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" name="tel" id="tel" placeholder="Telefono" required>
+                        <input type="tel" class="form-control" formControlName="tel">
                     </div>
                     
                     <div class="form-group">
                         <h6>Data Arrivo</h6>
-                        <input type="date" class="form-control" name="subject" id="doa" placeholder="Data Arrivo" required>
+                        <input type="date" class="form-control" formControlName="data_a">
                     </div>
                     <div class="form-group">
                         <h6>Data Partenza</h6>
-                        <input type="date" class="form-control" name="subject" id="dod" placeholder="Data Partenza" required>
+                        <input type="date" class="form-control" formControlName="data_p">
                     </div>
                     <div class="form-group">
                         <h6>Ospiti</h6>
-                        <div class="wrapper">
+                        <div class="wrapper"> 
                           <button id="minus" class="border-0 text-center" (click)="decrement()">-</button>
-                          <span id="num" class="border-0 text-center">1</span>
-                          <!--<input id="num" type="number" step="1" max="3" value="1" name="quantity" class="border-0 text-center">-->
+                          <input id="num" type="number" value="1" class="border-0 text-center" formControlName="ospiti" [readonly]=true>
                           <button id="plus" class="plus border-0" (click)="increment()">+</button>
                         </div>
                     </div>
-
                       
                     <div class="my-3">
                       <div class="loading">Loading</div>

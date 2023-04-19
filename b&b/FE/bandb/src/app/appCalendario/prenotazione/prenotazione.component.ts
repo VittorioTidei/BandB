@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-prenotazione',
@@ -7,8 +8,29 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./prenotazione.component.css']
 })
 export class PrenotazioneComponent {
-  
-  private a = 1;
+
+   num = document.getElementById('num') as HTMLInputElement | null;
+   form:FormGroup;
+   SERVER_URL = "http://localhost:8080/api/v1/prenotazione";
+
+   constructor(public fb:FormBuilder, private http: HttpClient){
+
+    
+
+    this.form=fb.group({
+      'nome': ['Nome', Validators.required],
+      'cognome': ['Cognome', Validators.required],
+      'email': ['Email', Validators.required],
+      'tel': ['Telefono', Validators.required],
+      'data_a': ['', Validators.required],
+      'data_p': ['', Validators.required],
+      'ospiti': ['1', Validators.required]
+    })
+
+    this.form.valueChanges.subscribe(console.log)
+
+   }
+
 
   decrement(){
     const num = document.getElementById('num') as HTMLInputElement | null;
@@ -16,9 +38,9 @@ export class PrenotazioneComponent {
     
 
 
-    if(this.a > 1){
-      this.a--;
-      num.innerHTML = this.a.toString();
+    if(num.valueAsNumber > 1){
+      num.valueAsNumber--;
+      this.form.get("ospiti").setValue(num.valueAsNumber);
 
     }
     
@@ -27,17 +49,32 @@ export class PrenotazioneComponent {
   increment(){
     const num = document.getElementById('num') as HTMLInputElement | null;
   
-    if(this.a < 3){
-      this.a++;
-      num.innerHTML = this.a.toString();
+    if(num.valueAsNumber < 3){
+      num.valueAsNumber++;
+      this.form.get("ospiti").setValue(num.valueAsNumber);
 
     }
     
   }
   
 
-  nSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+  send() {
+    const headers = { 'content-type': 'application/json'}  
+    if(!this.form.valid){
+      alert("Compila coglione!")
+      return;
+    }
+
+    var formData: any = new FormData();
+    formData.append("camera", 101)
+    formData.append("nome", this.form.get('nome').value)
+    formData.append("cognome", this.form.get('cognome').value)
+    formData.append("email", this.form.get('email').value)
+    formData.append("tel", this.form.get('tel').value)
+    formData.append("data_inizio", this.form.get('data_a').value)
+    formData.append("data_fine", this.form.get('data_p').value)
+    //formData.append("ospiti", this.form.get('ospiti').value)
+    this.http.post(this.SERVER_URL, JSON.stringify(formData),{'headers':headers})
+
   }
 }

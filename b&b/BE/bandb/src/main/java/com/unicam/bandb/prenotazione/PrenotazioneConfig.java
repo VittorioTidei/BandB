@@ -14,7 +14,7 @@ public class PrenotazioneConfig {
     @Bean
     CommandLineRunner commandLineRunner(PrenotazioneRepository repository){
         return args -> {
-            Prenotazione pippo = new Prenotazione(
+            /*Prenotazione pippo = new Prenotazione(
                     101,
                     "Pippo",
                     "Marcelli",
@@ -32,9 +32,9 @@ public class PrenotazioneConfig {
                     "3333635598",
                     LocalDate.of(2023, Month.JUNE, 10),
                     LocalDate.of(2023, Month.JUNE, 17)
-            );
+            );*/
 
-            repository.saveAll(List.of(pippo,pluto));
+            //repository.saveAll(List.of(pippo,pluto));
         };
     }
 
