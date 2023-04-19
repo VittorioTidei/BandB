@@ -11,7 +11,7 @@ export class PrenotazioneComponent {
 
    num = document.getElementById('num') as HTMLInputElement | null;
    form:FormGroup;
-   SERVER_URL = "http://localhost:8080/api/v1/prenotazione";
+   
 
    constructor(public fb:FormBuilder, private http: HttpClient){
 
@@ -59,22 +59,25 @@ export class PrenotazioneComponent {
   
 
   send() {
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json'}  
+    const SERVER_URL = "http://localhost:8080/api/v1/prenotazione";
     if(!this.form.valid){
-      alert("Compila coglione!")
-      return;
+      //alert("Compila coglione!")
+      //return;
     }
 
+
     var formData: any = new FormData();
-    formData.append("camera", 101)
-    formData.append("nome", this.form.get('nome').value)
+    //formData.append("camera", 101)
+    /*formData.append("nome", this.form.get('nome').value)
     formData.append("cognome", this.form.get('cognome').value)
     formData.append("email", this.form.get('email').value)
     formData.append("tel", this.form.get('tel').value)
     formData.append("data_inizio", this.form.get('data_a').value)
     formData.append("data_fine", this.form.get('data_p').value)
-    //formData.append("ospiti", this.form.get('ospiti').value)
-    this.http.post(this.SERVER_URL, JSON.stringify(formData),{'headers':headers})
+    formData.append("ospiti", this.form.get('ospiti').value)*/
+    //console.log(JSON.stringify(formData))
+    //this.http.post(SERVER_URL, JSON.stringify(formData), {'headers':headers})
 
   }
 }

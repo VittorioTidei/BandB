@@ -21,8 +21,10 @@ public class PrenotazioneController {
         return prenotazioneService.getPrenotazione();
     }
 
+
     @PostMapping
     public void registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
+        System.out.println(prenotazione);
         prenotazioneService.addNewPrenotazione(prenotazione);
     }
 
