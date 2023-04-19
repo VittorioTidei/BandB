@@ -13,5 +13,8 @@
     "ngx-bootstrap": "^10.2.0",
     "ngx-gallery": "^5.10.0",
     "tabs": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.16"
   }
 }
