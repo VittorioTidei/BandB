@@ -1,6 +1,8 @@
 package com.unicam.bandb.prenotazione;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +25,10 @@ public class PrenotazioneController {
 
 
     @PostMapping
-    public void registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
+    public ResponseEntity<Prenotazione> registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
+        Prenotazione newPrenotazione = prenotazioneService.addNewPrenotazione(prenotazione);
         System.out.println(prenotazione);
-        prenotazioneService.addNewPrenotazione(prenotazione);
+        return new ResponseEntity<>(newPrenotazione, HttpStatus.CREATED);
     }
 
 }

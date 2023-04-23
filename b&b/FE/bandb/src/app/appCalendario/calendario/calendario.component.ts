@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { calendarioDTO } from 'src/DTO/calendarioDTO';
-import { CalendarioService } from 'src/Service/calendarioservice';
-import {NgForm} from '@angular/forms';
 import {ChangeDetectionStrategy,ViewChild,TemplateRef,} from '@angular/core';
 import {startOfDay,endOfDay,subDays,addDays,endOfMonth,isSameDay,isSameMonth,addHours,} from 'date-fns';
 import { Subject } from 'rxjs';
@@ -45,9 +42,8 @@ const colors: Record<string, EventColor> = {
   ],
 })
 export class CalendarioComponent {
-  calendari : calendarioDTO[];
+  
   id:number;
-  calendario: calendarioDTO;
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 

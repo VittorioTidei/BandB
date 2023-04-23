@@ -2,8 +2,6 @@ package com.unicam.bandb.prenotazione;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
 @Service
@@ -20,9 +18,10 @@ public class PrenotazioneService {
         return prenotazioneRepository.findAll();
     }
 
-    public void addNewPrenotazione(Prenotazione prenotazione) {
+    public Prenotazione addNewPrenotazione(Prenotazione prenotazione) {
         prenotazioneRepository.save(prenotazione);
         System.out.println(prenotazione);
+        return prenotazione;
     }
 }
 
