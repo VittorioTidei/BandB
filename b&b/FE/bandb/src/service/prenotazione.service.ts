@@ -20,8 +20,8 @@ export class PrenotazioneService{
         return this.http.get<Prenotazione>(`${this.apiServerUrl}/prenotazione/`);
     }
 
-    public addPrenotazione(prenotazione: Prenotazione): Observable<Prenotazione> {
-        return this.http.post<Prenotazione>(`${this.apiServerUrl}/prenotazione`, prenotazione);
+    public addPrenotazione(prenotazione: Prenotazione): Observable<any> {
+        return this.http.post<any>(`${this.apiServerUrl}/prenotazione`, prenotazione);
     }
 
 

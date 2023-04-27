@@ -1,4 +1,4 @@
-export interface Prenotazione{
+export class Prenotazione{
 
     nome: string;
     cognome: string;
