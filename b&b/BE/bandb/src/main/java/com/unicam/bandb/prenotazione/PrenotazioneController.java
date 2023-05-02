@@ -24,7 +24,7 @@ public class PrenotazioneController {
     }
 
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Prenotazione> registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
         Prenotazione newPrenotazione = prenotazioneService.addNewPrenotazione(prenotazione);
         System.out.println(prenotazione);

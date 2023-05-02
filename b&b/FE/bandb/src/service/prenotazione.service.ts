@@ -8,12 +8,12 @@ import { environment } from "src/enviroments/enviroment";
     providedIn: 'root'
 })
 
-export class PrenotazioneService{
+export class PrenotazioneService extends Prenotazione{
     private apiServerUrl = environment.APIEndpoint;
 
 
     constructor(private http: HttpClient){
-
+        super();
     }
 
     public getPrenotazione(): Observable<Prenotazione> {
@@ -21,7 +21,7 @@ export class PrenotazioneService{
     }
 
     public addPrenotazione(prenotazione: Prenotazione): Observable<any> {
-        return this.http.post<any>(`${this.apiServerUrl}/prenotazione`, prenotazione);
+        return this.http.post<Prenotazione>(`${this.apiServerUrl}/prenotazione/`, prenotazione);
     }
 
 

@@ -23,11 +23,15 @@ public class Prenotazione {
     private LocalDate data_inizio;
     private LocalDate data_fine;
 
+    private int ospiti;
+
     public Prenotazione(){
 
     }
 
-    public Prenotazione(long id, int camera, String nome, String cognome, String email, String telefono, LocalDate data_inizio, LocalDate data_fine) {
+
+
+    public Prenotazione(long id, int camera, String nome, String cognome, String email, String telefono, LocalDate data_inizio, LocalDate data_fine, int ospiti) {
         this.id = id;
         this.camera = camera;
         this.nome = nome;
@@ -36,9 +40,12 @@ public class Prenotazione {
         this.telefono = telefono;
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
+        this.ospiti = ospiti;
     }
 
-    public Prenotazione(int camera, String nome, String cognome, String email, String telefono, LocalDate data_inizio, LocalDate data_fine) {
+
+
+    public Prenotazione(int camera, String nome, String cognome, String email, String telefono, LocalDate data_inizio, LocalDate data_fine, int ospiti) {
         this.camera = camera;
         this.nome = nome;
         this.cognome = cognome;
@@ -46,6 +53,7 @@ public class Prenotazione {
         this.telefono = telefono;
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
+        this.ospiti = ospiti;
     }
 
     public long getId() {
@@ -63,6 +71,10 @@ public class Prenotazione {
     public void setCamera(short camera) {
         this.camera = camera;
     }
+
+    public int getOspiti() { return ospiti; }
+
+    public void setOspiti(int ospiti) { this.ospiti = ospiti; }
 
     public String getNome() {
         return nome;
@@ -112,6 +124,7 @@ public class Prenotazione {
         this.data_fine = data_fine;
     }
 
+
     @Override
     public String toString() {
         return "Prenotazione{" +
@@ -119,8 +132,11 @@ public class Prenotazione {
                 ", camera=" + camera +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefono='" + telefono + '\'' +
                 ", data_inizio=" + data_inizio +
                 ", data_fine=" + data_fine +
+                ", ospiti=" + ospiti +
                 '}';
     }
 }

@@ -20,23 +20,23 @@
                         <input type="email" class="form-control" formControlName="email">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" formControlName="tel">
+                        <input type="tel" class="form-control" formControlName="telefono">
                     </div>
                     
                     <div class="form-group">
                         <h6>Data Arrivo</h6>
-                        <input type="date" class="form-control" formControlName="data_a">
+                        <input type="date" class="form-control" formControlName="data_inizio">
                     </div>
                     <div class="form-group">
                         <h6>Data Partenza</h6>
-                        <input type="date" class="form-control" formControlName="data_p">
+                        <input type="date" class="form-control" formControlName="data_fine">
                     </div>
                     <div class="form-group">
                         <h6>Ospiti</h6>
                         <div class="wrapper"> 
-                          <button id="minus" class="border-0 text-center" (click)="decrement()">-</button>
+                          <button id="minus" class="border-0 text-center" (click)="decrement()" type="button">-</button>
                           <input id="num" type="number" value="1" class="border-0 text-center" formControlName="ospiti" [readonly]=true>
-                          <button id="plus" class="plus border-0" (click)="increment()">+</button>
+                          <button id="plus" class="plus border-0" (click)="increment()" type="button">+</button>
                         </div>
                     </div>
                       

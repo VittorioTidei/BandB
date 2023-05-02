@@ -3,10 +3,14 @@ export class Prenotazione{
     nome: string;
     cognome: string;
     email: string;
-    tel: string;
-    data_a: Date;
-    data_p: Date;
+    telefono: string;
+    data_inizio: Date;
+    data_fine: Date;
     camera: number;
+
+    constructor(){
+      
+    }
     
 
     /*'nome': ['Nome', Validators.required],
