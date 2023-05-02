@@ -30,15 +30,6 @@
                     <div class="form-group">
                         <input type="tel" class="form-control" formControlName="telefono">
                     </div>
-                    
-                    <div class="form-group">
-                        <h6>Data Arrivo</h6>
-                        <input type="date" class="form-control" formControlName="data_inizio">
-                    </div>
-                    <div class="form-group">
-                        <h6>Data Partenza</h6>
-                        <input type="date" class="form-control" formControlName="data_fine">
-                    </div>
                     <div class="form-group">
                         <h6>Ospiti</h6>
                         <div class="wrapper"> 
@@ -55,7 +46,21 @@
 
             <!-- Calendario -->
             <div class="col-lg-7">
-                <app-calendario></app-calendario>
+              <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" [markDisabled]="isDisabled" outsideDays="hidden">
+              </ngb-datepicker>
+              
+              <ng-template #t let-date let-focused="focused">
+                <span
+                  class="custom-day"
+                  [class.focused]="focused"
+                  [class.range]="isRange(date)"
+                  [class.faded]="isHovered(date) || isInside(date)"
+                  (mouseenter)="hoveredDate = date"
+                  (mouseleave)="hoveredDate = null"
+                >
+                  {{ date.day }}
+                </span>
+              </ng-template>
             </div>
             
         </div>

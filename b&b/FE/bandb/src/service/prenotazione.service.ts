@@ -16,8 +16,8 @@ export class PrenotazioneService extends Prenotazione{
         super();
     }
 
-    public getPrenotazione(): Observable<Prenotazione> {
-        return this.http.get<Prenotazione>(`${this.apiServerUrl}/prenotazione/`);
+    public getPrenotazione(): Observable<any> {
+        return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/`);
     }
 
     public addPrenotazione(prenotazione: Prenotazione): Observable<any> {
