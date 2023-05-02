@@ -20,6 +20,8 @@ public class PrenotazioneController {
 
     @GetMapping("/")
     public List<Prenotazione> getPrenotazione(){
+
+        System.out.println("Get");
         return prenotazioneService.getPrenotazione();
     }
 
