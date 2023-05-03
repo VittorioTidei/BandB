@@ -81,23 +81,26 @@ export class PrenotazioneComponent implements OnInit{
       TRUE - DISPONIBILE
       FALSE - DISABILITATA
     */
-    var filtered: boolean;
+    var filtered: boolean = true;
     var checked: boolean = false;
-    d = new Date(d);
 
     this.prenotazioni.forEach(element => {
-      var data_I = new Date(element.data_inizio);
-      var data_F = new Date(element.data_fine);
-      if(!checked){
-        if(this.isInRange(data_I, d, data_F)){
+
+     if(!checked){
+        if(this.isInRange(new Date(element.data_inizio), d, new Date(element.data_fine))){
           checked = true;
           filtered = false;
         } else {
           filtered = true;
         }
       }
+      
     });
     
+    if(this.isBefore(d, new Date())){
+      filtered = false;
+    }
+
     return filtered;
   }
 
