@@ -71,10 +71,6 @@ export class PrenotazioneComponent {
     
   }
   
-  formatDateI() {
-    var date = new Date(`${this.form.value.data_inizio} UTC`);
-    return date.toString();
-  }
 
   send(){
     this.prenotazione = this.form.value;
