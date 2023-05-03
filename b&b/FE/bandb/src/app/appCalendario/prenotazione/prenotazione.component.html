@@ -30,6 +30,18 @@
                     <div class="form-group">
                         <input type="tel" class="form-control" formControlName="telefono">
                     </div>
+
+                    <div class="form-group">
+                      <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
+                        <input matStartDate  placeholder="From Date" formControlName="data_inizio">
+                        <input matEndDate placeholder="To Date" formControlName="data_fine">
+                      </mat-date-range-input>
+                  
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-date-range-picker  #picker></mat-date-range-picker>
+
+                    </div>
+
                     <div class="form-group">
                         <h6>Ospiti</h6>
                         <div class="wrapper"> 
@@ -38,18 +50,6 @@
                           <button id="plus" class="plus border-0" (click)="increment()" type="button">+</button>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                      <mat-date-range-input [rangePicker]="picker">
-                        <input matStartDate placeholder="From Date" formControlName="data_inizio">
-                        <input matEndDate placeholder="To Date" formControlName="data_fine">
-                      </mat-date-range-input>
-                  
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-date-range-picker #picker></mat-date-range-picker>
-
-                    </div>
-                      
                     
                     <div class="text-center"><button type="submit">Prenota</button></div>
                   </form><!--End Contact Form -->
