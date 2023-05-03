@@ -14,32 +14,71 @@
 
         <div class="row">
             <!-- Form -->
-            <div class="col-lg-5">
+            <div class="">
                 <form (ngSubmit)="send()" [formGroup]="form" class="php-email-form p-3 p-md-4">
                     <div class="row">
                       <div class="col-xl-6 form-group">
-                        <input type="text" class="form-control" formControlName="nome">
+                        <input type="text" class="form-control" formControlName="nome" placeholder="Nome" [class.is-invalid]="form.get('nome').invalid && form.get('nome').touched">
+
+                        <div *ngIf="form.get('nome').invalid && form.get('nome').touched">
+                          <small *ngIf="form.get('nome').errors" class="text-danger">
+                            Inserisci il tuo nome
+                          </small>
+                        </div>
+                        
                       </div>
                       <div class="col-xl-6 form-group">
-                        <input type="text" class="form-control" formControlName="cognome">
+                        <input type="text" class="form-control" formControlName="cognome" placeholder="Cognome" [class.is-invalid]="form.get('cognome').invalid && form.get('cognome').touched">
+
+                        <div *ngIf="form.get('cognome').invalid && form.get('cognome').touched">
+                          <small *ngIf="form.get('cognome').errors" class="text-danger">
+                            Inserisci il tuo cognome
+                          </small>
+                        </div>
+
                       </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" formControlName="email">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email" email [class.is-invalid]="form.get('email').invalid && form.get('email').touched">
+
+                        <div *ngIf="form.get('email').invalid && form.get('email').touched">
+                          <small *ngIf="form.get('email').errors" class="text-danger">
+                            Inserisci un email valida
+                          </small>
+                        </div>
+
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" formControlName="telefono">
+                        <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono" [class.is-invalid]="form.get('telefono').invalid && form.get('telefono').touched">
+
+                        <div *ngIf="form.get('telefono').invalid && form.get('telefono').touched">
+                          <small *ngIf="form.get('telefono').errors" class="text-danger">
+                            Inserisci un numero valido
+                          </small>
+                        </div>
+
                     </div>
-
                     <div class="form-group">
-                      <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
-                        <input matStartDate  placeholder="From Date" formControlName="data_inizio">
-                        <input matEndDate placeholder="To Date" formControlName="data_fine">
-                      </mat-date-range-input>
-                  
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-date-range-picker  #picker></mat-date-range-picker>
+                      <select class="form-control" formControlName="camera" [class.is-invalid]="form.get('camera').invalid">
+                        <option>101</option>
+                        <option>102</option>
+                        <option>103</option>
+                      </select>
+                      <!--<input type="camera" class="form-control" formControlName="camera">-->
+                  </div>
 
+                    <div class="form-group row">
+                      <mat-form-field appearance="fill" >
+
+                        <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
+                          <input matStartDate matInput placeholder="Da" formControlName="data_inizio" [class.is-invalid]="form.get('data_inizio').invalid">
+                          <input matEndDate matInput placeholder="A" formControlName="data_fine" [class.is-invalid]="form.get('data_inizio').invalid">
+                        </mat-date-range-input>
+                    
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker  #picker></mat-date-range-picker>
+
+                      </mat-form-field>
                     </div>
 
                     <div class="form-group">
@@ -51,7 +90,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-center"><button type="submit">Prenota</button></div>
+                    <div class="text-center"><button type="submit" [disabled]="!form.valid">Prenota</button></div>
                   </form><!--End Contact Form -->
             </div>
 

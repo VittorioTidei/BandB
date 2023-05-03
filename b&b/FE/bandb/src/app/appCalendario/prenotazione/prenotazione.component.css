@@ -50,3 +50,7 @@ body{
 .custom-day.faded {
   background-color: rgba(206, 18, 18, 0.5);
 }
+
+.datepicker {
+  justify-content: center;
+}
