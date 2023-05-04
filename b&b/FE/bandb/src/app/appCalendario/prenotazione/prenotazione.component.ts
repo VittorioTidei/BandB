@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { Prenotazione } from 'src/service/prenotazione';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 
 @Component({
@@ -16,7 +17,13 @@ export class PrenotazioneComponent implements OnInit{
   prenotazione: Prenotazione = new Prenotazione();
   prenotazioni: Prenotazione[];
 
-   constructor(public fb:FormBuilder, private http: HttpClient, public PrenotazioneService: PrenotazioneService,){
+  public payPalConfig?: IPayPalConfig;
+  showSuccess: boolean;
+
+  confirmation: any;
+  loading = false;
+
+   constructor(public fb:FormBuilder, private http: HttpClient, public PrenotazioneService: PrenotazioneService){
 
     this.form=fb.group({
       'nome': ['', Validators.required],
@@ -35,13 +42,16 @@ export class PrenotazioneComponent implements OnInit{
    }
 
 
+
   ngOnInit(): void {
 
     this.PrenotazioneService.getPrenotazione().subscribe(data => {
       this.prenotazioni = data;
     });
      
+    this.initConfig();
    }
+
 
   decrement(){
     const num = document.getElementById('num') as HTMLInputElement | null;
@@ -109,7 +119,74 @@ export class PrenotazioneComponent implements OnInit{
 
   send(){
     this.prenotazione = this.form.value;
-    this.PrenotazioneService.addPrenotazione(this.prenotazione).subscribe();
+    //this.PrenotazioneService.addPrenotazione(this.prenotazione).subscribe();
 
   }
+
+
+  private initConfig(): void {
+    this.payPalConfig = {
+    currency: 'EUR',
+    clientId: 'sb',
+    createOrderOnClient: (data) => <ICreateOrderRequest>{
+      intent: 'CAPTURE',
+      purchase_units: [
+        {
+          amount: {
+            currency_code: 'EUR',
+            value: '9.99',
+            breakdown: {
+              item_total: {
+                currency_code: 'EUR',
+                value: '9.99'
+              }
+            }
+          },
+          items: [
+            {
+              name: 'Enterprise Subscription',
+              quantity: '1',
+              category: 'DIGITAL_GOODS',
+              unit_amount: {
+                currency_code: 'EUR',
+                value: '9.99',
+              },
+            }
+          ]
+        }
+      ]
+    },
+    advanced: {
+      commit: 'true'
+    },
+    style: {
+      label: 'paypal',
+      layout: 'vertical'
+    },
+    onApprove: (data, actions) => {
+      console.log('onApprove - transaction was approved, but not authorized', data, actions);
+      actions.order.get().then(details => {
+        console.log('onApprove - you can get full order details inside onApprove: ', details);
+      });
+    },
+    onClientAuthorization: (data) => {
+      console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+      this.showSuccess = true;
+    },
+    onCancel: (data, actions) => {
+      console.log('OnCancel', data, actions);
+    },
+    onError: err => {
+      console.log('OnError', err);
+    },
+    onClick: (data, actions) => {
+      console.log('onClick', data, actions);
+    },
+  };
+  }
+
+
+
+
+
 }

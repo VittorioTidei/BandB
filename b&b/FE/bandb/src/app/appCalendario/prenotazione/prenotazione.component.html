@@ -91,28 +91,15 @@
                     </div>
                     
                     <div class="text-center"><button type="submit" [disabled]="!form.valid">Prenota</button></div>
+                    <div *ngIf="loading"> Processando il pagamento </div>
                   </form><!--End Contact Form -->
             </div>
 
             <!-- Calendario -->
             <div class="col-lg-7">
 
-                
-              <!-- <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" [markDisabled]="isDisabled" outsideDays="hidden">
-              </ngb-datepicker> -->
-              
-              <!-- <ng-template #t let-date let-focused="focused">
-                <span
-                  class="custom-day"
-                  [class.focused]="focused"
-                  [class.range]="isRange(date)"
-                  [class.faded]="isHovered(date) || isInside(date)"
-                  (mouseenter)="hoveredDate = date"
-                  (mouseleave)="hoveredDate = null"
-                >
-                  {{ date.day }}
-                </span>
-              </ng-template> -->
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
             </div> 
             
         </div>
