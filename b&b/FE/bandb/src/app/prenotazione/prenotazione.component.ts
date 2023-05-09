@@ -1,10 +1,10 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { Prenotazione } from 'src/service/prenotazione';
-import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
+declare var paypal;
 
 @Component({
   selector: 'app-prenotazione',
@@ -16,12 +16,13 @@ export class PrenotazioneComponent implements OnInit{
   form:FormGroup;
   prenotazione: Prenotazione = new Prenotazione();
   prenotazioni: Prenotazione[];
+  prenota: boolean = false;
+  success: boolean = false;
+  details: any;
 
-  public payPalConfig?: IPayPalConfig;
-  showSuccess: boolean;
+  @ViewChild('paypal', {static: true}) paymentElement : ElementRef;
+  
 
-  confirmation: any;
-  loading = false;
 
    constructor(public fb:FormBuilder, private http: HttpClient, public PrenotazioneService: PrenotazioneService){
 
@@ -37,7 +38,6 @@ export class PrenotazioneComponent implements OnInit{
     })
 
     this.form.controls['telefono'].addValidators(Validators.required);
-    this.form.valueChanges.subscribe(console.log)
 
    }
 
@@ -48,8 +48,9 @@ export class PrenotazioneComponent implements OnInit{
     this.PrenotazioneService.getPrenotazione().subscribe(data => {
       this.prenotazioni = data;
     });
-     
-    this.initConfig();
+
+    
+
    }
 
 
@@ -117,76 +118,37 @@ export class PrenotazioneComponent implements OnInit{
     return filtered;
   }
 
-  send(){
+  callPrenota() {
+    this.success = true;
+    this.PrenotazioneService.addPrenotazione(this.prenotazione).subscribe();
+  }
+
+  redirect() {
+    window.setTimeout(function(){ window.location.href = "/index.html"; }, 5000);
+    
+  }
+
+  send() {
     this.prenotazione = this.form.value;
-    //this.PrenotazioneService.addPrenotazione(this.prenotazione).subscribe();
+    this.prenota = true;
 
-  }
-
-
-  private initConfig(): void {
-    this.payPalConfig = {
-    currency: 'EUR',
-    clientId: 'sb',
-    createOrderOnClient: (data) => <ICreateOrderRequest>{
-      intent: 'CAPTURE',
-      purchase_units: [
-        {
-          amount: {
-            currency_code: 'EUR',
-            value: '9.99',
-            breakdown: {
-              item_total: {
-                currency_code: 'EUR',
-                value: '9.99'
-              }
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: 50
             }
-          },
-          items: [
-            {
-              name: 'Enterprise Subscription',
-              quantity: '1',
-              category: 'DIGITAL_GOODS',
-              unit_amount: {
-                currency_code: 'EUR',
-                value: '9.99',
-              },
-            }
-          ]
-        }
-      ]
-    },
-    advanced: {
-      commit: 'true'
-    },
-    style: {
-      label: 'paypal',
-      layout: 'vertical'
-    },
-    onApprove: (data, actions) => {
-      console.log('onApprove - transaction was approved, but not authorized', data, actions);
-      actions.order.get().then(details => {
-        console.log('onApprove - you can get full order details inside onApprove: ', details);
-      });
-    },
-    onClientAuthorization: (data) => {
-      console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-      this.showSuccess = true;
-    },
-    onCancel: (data, actions) => {
-      console.log('OnCancel', data, actions);
-    },
-    onError: err => {
-      console.log('OnError', err);
-    },
-    onClick: (data, actions) => {
-      console.log('onClick', data, actions);
-    },
-  };
+          }]
+        });
+      },
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(function (details) {
+        }).then(this.callPrenota())
+      },
+      onCancel: function(data) {
+        window.location.href = "/index.html";
+      }
+    }).render(this.paymentElement.nativeElement);
   }
-
-
-
-
-
 }

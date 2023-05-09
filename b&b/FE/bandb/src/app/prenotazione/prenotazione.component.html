@@ -5,6 +5,8 @@
     <h1>B&Bonifazi<span>.</span></h1>
   </a>
 
+  
+
 </header><!-- End NavBar -->
 
 
@@ -12,10 +14,44 @@
     <section id="contact" class="contact">
         <div class="container"></div>
 
-        <div class="row">
+        <div class="row gy-4">
+            <!-- Info -->
+
+            <div class="col-lg-5">
+
+              <section id="about" class="about">
+                <div class="container">
+          
+                  <div class="section-header">
+                    <h2>Deposito Prenotazione</h2>
+                    <p>Prenota ora la tua<span> Camera</span></p>
+                  </div>
+          
+                  <div class="row gy-4">
+                    
+                    <div class="d-flex align-items-center">
+                      <div class="content ps-0 ps-lg-5">
+                        <p class="fst-italic">
+                          Per garantire la prenotazione di una camera nel nostro bed and breakfast, chiediamo ai nostri ospiti di effettuare un deposito di 50 euro.
+                        </p>
+                        <ul>
+                          <li><i class="bi bi-check2-all"></i> In questo modo, potrai godere del tuo soggiorno nel massimo della tranquillità, senza preoccuparti di trovare la camera che hai scelto già occupata.</li>
+                          <li><i class="bi bi-check2-all"></i> Ti permetterà di prenotare la camera richiesta e assicurare la disponibilità al momento del tuo arrivo.</li>
+                          <li><i class="bi bi-check2-all"></i> Questo deposito verrà sottratto dall'importo totale dell'affitto della camera.</li>
+                        </ul>
+                     
+                      </div>
+                    </div>
+                  </div>
+          
+                </div>
+              </section>
+
+            </div>
+
             <!-- Form -->
-            <div class="">
-                <form (ngSubmit)="send()" [formGroup]="form" class="php-email-form p-3 p-md-4">
+            <div class="col-lg-7" >
+                <form (ngSubmit)="send()" [formGroup]="form" *ngIf="!prenota" class="php-email-form p-3 p-md-4">
                     <div class="row">
                       <div class="col-xl-6 form-group">
                         <input type="text" class="form-control" formControlName="nome" placeholder="Nome" [class.is-invalid]="form.get('nome').invalid && form.get('nome').touched">
@@ -91,19 +127,27 @@
                     </div>
                     
                     <div class="text-center"><button type="submit" [disabled]="!form.valid">Prenota</button></div>
-                    <div *ngIf="loading"> Processando il pagamento </div>
                   </form><!--End Contact Form -->
+                  <div #paypal ></div>
             </div>
 
-            <!-- Calendario -->
-            <div class="col-lg-7">
-
-              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-
-            </div> 
             
+
+            <!-- Calendario -->
+
+              
+
         </div>
+        
 
           
       </section><!-- End Contact Section -->
+
+      <div  *ngIf="success" class="container">
+        <div class="section-header">
+          <p>Prenotazione avvenuta con<span> SUCCESSO</span></p>
+          {{redirect()}}
+        </div>
+      </div>
     </section>
+    
