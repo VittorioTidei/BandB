@@ -1,12 +1,8 @@
 .section-border{
-    /* background-image: url("../../assets/img/waves.png");
+    background-image: url("../../assets/img/background_hero.jpg");
+    /*background-position: 50%;*/ /* DA DECIDERE */
     background-clip: border-box;
-    background-size: auto;
-    max-width: 100%;
-    height: auto;
-    background-repeat: no-repeat; */
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../../assets/img/waves.png");
-    background-size: auto;
+    background-repeat: no-repeat;
     max-width: 100%;
     height: auto;
 }
@@ -23,7 +19,7 @@
   margin-right: auto;
     padding-top: 30px;
     height: auto;
-    max-width: 100%;
+    max-width: 65%;
 }
 
 .prenota-button{

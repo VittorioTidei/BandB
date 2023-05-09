@@ -22,15 +22,13 @@ public class PrenotazioneController {
     @GetMapping("/")
     public List<Prenotazione> getPrenotazione(){
 
-        System.out.println("Get");
-        return prenotazioneService.getPrenotazione();
+       return prenotazioneService.getPrenotazione();
     }
 
 
     @PostMapping("/")
     public ResponseEntity<Prenotazione> registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
         Prenotazione newPrenotazione = prenotazioneService.addNewPrenotazione(prenotazione);
-        System.out.println(prenotazione);
         return new ResponseEntity<>(newPrenotazione, HttpStatus.CREATED);
     }
 

@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PrenotazioneComponent } from './prenotazione/prenotazione.component';
-import { AdminComponent } from './admin/admin.component'; 
 //Modules
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,8 +28,7 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapte
     AppComponent,
     HomeComponentComponent,
     NavbarComponent,
-    PrenotazioneComponent,
-    AdminComponent
+    PrenotazioneComponent
   ],
   imports: [
     BrowserModule,

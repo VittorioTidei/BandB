@@ -20,7 +20,6 @@ public class PrenotazioneService {
 
     public Prenotazione addNewPrenotazione(Prenotazione prenotazione) {
         prenotazioneRepository.save(prenotazione);
-        System.out.println(prenotazione);
         return prenotazione;
     }
 }
