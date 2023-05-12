@@ -1,5 +1,3 @@
-import { NgbDate } from "@ng-bootstrap/ng-bootstrap";
-
 export class Prenotazione{
 
     nome: string;
@@ -10,16 +8,6 @@ export class Prenotazione{
     data_fine: Date;
     camera: number;
 
-    constructor(){
-      
-    }
+    constructor(){}
     
-
-    /*'nome': ['Nome', Validators.required],
-      'cognome': ['Cognome', Validators.required],
-      'email': ['Email', Validators.required],
-      'tel': ['Telefono', Validators.required],
-      'data_a': ['', Validators.required],
-      'data_p': ['', Validators.required],
-      'ospiti': ['1', Validators.required]*/
 }

@@ -19,17 +19,22 @@ public class PrenotazioneController {
         this.prenotazioneService = prenotazioneService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/get")
     public List<Prenotazione> getPrenotazione(){
 
        return prenotazioneService.getPrenotazione();
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public ResponseEntity<Prenotazione> registerNewPrenotazione(@RequestBody Prenotazione prenotazione){
         Prenotazione newPrenotazione = prenotazioneService.addNewPrenotazione(prenotazione);
         return new ResponseEntity<>(newPrenotazione, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/healthcheck")
+    @ResponseStatus(HttpStatus.OK)
+    public void handleNotifications(){
     }
 
 }
