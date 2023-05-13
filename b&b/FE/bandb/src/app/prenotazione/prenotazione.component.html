@@ -1,153 +1,191 @@
- <!-- ======= NavBar ======= -->
- <header id="header" class="header fixed-top d-flex align-items-center">
+<!-- ======= NavBar ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
 
   <a href="index.html" class="logo logobandb d-flex align-items-lg-start me-auto me-lg-0">
     <h1>B&Bonifazi<span>.</span></h1>
   </a>
 
-  
+
 
 </header><!-- End NavBar -->
 
-
+<!-- Full Page Container -->
 <section class="container">
-    <section id="contact" class="contact">
-        <div class="container"></div>
 
-        <div class="row gy-4">
-            <!-- Info -->
+  <!-- Info & Prenotazione Container -->
+  <section id="contact" class="contact">
 
-            <div class="col-lg-5">
+    <!-- Info & Prenotazione Div -->
+    <div class="row gy-4">
 
-              <section id="about" class="about">
-                <div class="container">
-          
-                  <div class="section-header">
-                    <h2>Deposito Prenotazione</h2>
-                    <p>Prenota ora la tua<span> Camera</span></p>
-                  </div>
-          
-                  <div class="row gy-4">
-                    
-                    <div class="d-flex align-items-center">
-                      <div class="content ps-0 ps-lg-5">
-                        <p class="fst-italic">
-                          Per garantire la prenotazione di una camera nel nostro bed and breakfast, chiediamo ai nostri ospiti di effettuare un deposito di 50 euro.
-                        </p>
-                        <ul>
-                          <li><i class="bi bi-check2-all"></i> In questo modo, potrai godere del tuo soggiorno nel massimo della tranquillità, senza preoccuparti di trovare la camera che hai scelto già occupata.</li>
-                          <li><i class="bi bi-check2-all"></i> Ti permetterà di prenotare la camera richiesta e assicurare la disponibilità al momento del tuo arrivo.</li>
-                          <li><i class="bi bi-check2-all"></i> Questo deposito verrà sottratto dall'importo totale dell'affitto della camera.</li>
-                        </ul>
-                     
-                      </div>
-                    </div>
-                  </div>
-          
+      <!-- Info -->
+      <div class="col-lg-5" *ngIf="prenotaState < 3">
+
+        <section id="about" class="about">
+          <div class="container">
+
+            <div class="section-header">
+              <h2>Deposito Prenotazione</h2>
+              <p>Prenota ora la tua<span> Camera</span></p>
+            </div>
+
+            <div class="row gy-4">
+
+              <div class="d-flex align-items-center">
+                <div class="content ps-0 ps-lg-5">
+                  <p class="fst-italic">
+                    Per garantire la prenotazione di una camera nel nostro bed and breakfast, chiediamo ai nostri ospiti
+                    di effettuare un deposito di 50 euro.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> In questo modo, potrai godere del tuo soggiorno nel massimo
+                      della tranquillità, senza preoccuparti di trovare la camera che hai scelto già occupata.</li>
+                    <li><i class="bi bi-check2-all"></i> Ti permetterà di prenotare la camera richiesta e assicurare la
+                      disponibilità al momento del tuo arrivo.</li>
+                    <li><i class="bi bi-check2-all"></i> Questo deposito verrà sottratto dall'importo totale
+                      dell'affitto della camera.</li>
+                  </ul>
+
                 </div>
-              </section>
-
+              </div>
             </div>
 
-            <!-- Form -->
-            <div class="col-lg-7" >
-                <form (ngSubmit)="send()" [formGroup]="form" *ngIf="!prenota" class="php-email-form p-3 p-md-4">
-                    <div class="row">
-                      <div class="col-xl-6 form-group">
-                        <input type="text" class="form-control" formControlName="nome" placeholder="Nome" [class.is-invalid]="form.get('nome').invalid && form.get('nome').touched">
+          </div>
+        </section>
 
-                        <div *ngIf="form.get('nome').invalid && form.get('nome').touched">
-                          <small *ngIf="form.get('nome').errors" class="text-danger">
-                            Inserisci il tuo nome
-                          </small>
-                        </div>
-                        
-                      </div>
-                      <div class="col-xl-6 form-group">
-                        <input type="text" class="form-control" formControlName="cognome" placeholder="Cognome" [class.is-invalid]="form.get('cognome').invalid && form.get('cognome').touched">
-
-                        <div *ngIf="form.get('cognome').invalid && form.get('cognome').touched">
-                          <small *ngIf="form.get('cognome').errors" class="text-danger">
-                            Inserisci il tuo cognome
-                          </small>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" formControlName="email" placeholder="Email" email [class.is-invalid]="form.get('email').invalid && form.get('email').touched">
-
-                        <div *ngIf="form.get('email').invalid && form.get('email').touched">
-                          <small *ngIf="form.get('email').errors" class="text-danger">
-                            Inserisci un email valida
-                          </small>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono" [class.is-invalid]="form.get('telefono').invalid && form.get('telefono').touched">
-
-                        <div *ngIf="form.get('telefono').invalid && form.get('telefono').touched">
-                          <small *ngIf="form.get('telefono').errors" class="text-danger">
-                            Inserisci un numero valido
-                          </small>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                      <select class="form-control" formControlName="camera" [class.is-invalid]="form.get('camera').invalid">
-                        <option>101</option>
-                        <option>102</option>
-                        <option>103</option>
-                      </select>
-                      <!--<input type="camera" class="form-control" formControlName="camera">-->
-                  </div>
-
-                    <div class="form-group row">
-                      <mat-form-field appearance="fill" >
-
-                        <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
-                          <input matStartDate matInput placeholder="Da" formControlName="data_inizio" [class.is-invalid]="form.get('data_inizio').invalid">
-                          <input matEndDate matInput placeholder="A" formControlName="data_fine" [class.is-invalid]="form.get('data_inizio').invalid">
-                        </mat-date-range-input>
-                    
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-date-range-picker  #picker></mat-date-range-picker>
-
-                      </mat-form-field>
-                    </div>
-
-                    <div class="form-group">
-                        <h6>Ospiti</h6>
-                        <div class="wrapper"> 
-                          <button id="minus" class="border-0 text-center" (click)="decrement()" type="button">-</button>
-                          <input id="num" type="number" value="1" class="border-0 text-center" formControlName="ospiti" [readonly]=true>
-                          <button id="plus" class="plus border-0" (click)="increment()" type="button">+</button>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center"><button type="submit" [disabled]="!form.valid">Prenota</button></div>
-                  </form><!--End Contact Form -->
-                  <div #paypal ></div>
-            </div>
-
-            
-
-            <!-- Calendario -->
-
-              
-
-        </div>
-        
-
-          
-      </section><!-- End Contact Section -->
-
-      <div  *ngIf="success" class="container">
-        <div class="section-header">
-          <p>Prenotazione avvenuta con<span> SUCCESSO</span></p>
-          {{redirect()}}
-        </div>
       </div>
-    </section>
-    
+
+      <div class="col-lg-7">
+        
+        <!-- Form -->
+        <form (ngSubmit)="send()" [formGroup]="form" *ngIf="prenotaState == 0" class="php-email-form p-3 p-md-4">
+          <div class="row">
+            <div class="col-xl-6 form-group">
+              <input type="text" class="form-control" formControlName="nome" placeholder="Nome"
+                [class.is-invalid]="form.get('nome').invalid && form.get('nome').touched">
+
+              <div *ngIf="form.get('nome').invalid && form.get('nome').touched">
+                <small *ngIf="form.get('nome').errors" class="text-danger">
+                  Inserisci il tuo nome
+                </small>
+              </div>
+
+            </div>
+            <div class="col-xl-6 form-group">
+              <input type="text" class="form-control" formControlName="cognome" placeholder="Cognome"
+                [class.is-invalid]="form.get('cognome').invalid && form.get('cognome').touched">
+
+              <div *ngIf="form.get('cognome').invalid && form.get('cognome').touched">
+                <small *ngIf="form.get('cognome').errors" class="text-danger">
+                  Inserisci il tuo cognome
+                </small>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" formControlName="email" placeholder="Email" email
+              [class.is-invalid]="form.get('email').invalid && form.get('email').touched">
+
+            <div *ngIf="form.get('email').invalid && form.get('email').touched">
+              <small *ngIf="form.get('email').errors" class="text-danger">
+                Inserisci un email valida
+              </small>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono"
+              [class.is-invalid]="form.get('telefono').invalid && form.get('telefono').touched">
+
+            <div *ngIf="form.get('telefono').invalid && form.get('telefono').touched">
+              <small *ngIf="form.get('telefono').errors" class="text-danger">
+                Inserisci un numero valido
+              </small>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" formControlName="camera" [class.is-invalid]="form.get('camera').invalid">
+              <option>101</option>
+              <option>102</option>
+              <option>103</option>
+            </select>
+          </div>
+
+          <div class="form-group row">
+            <mat-form-field appearance="fill">
+
+              <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
+                <input matStartDate matInput placeholder="Da" formControlName="data_inizio"
+                  [class.is-invalid]="form.get('data_inizio').invalid">
+                <input matEndDate matInput placeholder="A" formControlName="data_fine"
+                  [class.is-invalid]="form.get('data_inizio').invalid">
+              </mat-date-range-input>
+
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <h6>Ospiti</h6>
+            <div class="wrapper">
+              <button id="minus" class="border-0 text-center" (click)="decrement()" type="button">-</button>
+              <input id="num" type="number" value="1" class="border-0 text-center" formControlName="ospiti"
+                [readonly]=true>
+              <button id="plus" class="plus border-0" (click)="increment()" type="button">+</button>
+            </div>
+          </div>
+
+          <div class="text-center" *ngIf="prenotaState==0">
+            <button type="submit" [disabled]="!form.valid">Prenota</button>
+          </div>
+
+        </form>
+
+        <!-- Riepilogo -->
+        <div class="php-email-form row gy-4" *ngIf="prenotaState==1" style="font-family: var(--font-secondary);">
+          <button class="btn btn-light btn-sm" style="margin-top: 0;" (click)="prenotaState = prenotaState-1"><i class="bi bi-chevron-left"></i></button>
+          <h5 class="text-center">Riepilogo</h5>
+          <span></span>
+          <div class="row">
+            <p>Camera: {{this.prenotazione.camera}}</p>
+            <p>Ospiti: {{this.prenotazione.ospiti}}</p>
+            <p>Tariffa Giornaliera: {{roomPrice}}€ </p>
+          </div>
+          <h5 class="text-center">Soggiorno</h5>
+          <div class="row">
+            <p>Dal: {{dataInizio}} (Check-In: 14:00)</p>
+            <p>Al: {{dataFine}} (Check-Out: 12:00 del giorno successivo)</p>
+            <p>Totale: {{numGiorni}} Giorni</p>
+          </div>
+          <h5 class="text-center">Totale: {{this.prenotazione.ospiti * roomPrice * numGiorni}}€</h5>
+          <div class="text-center" *ngIf="prenotaState==1"><button type="submit" (click)="renderPaypal()">Paga</button>
+          </div>
+          <span></span>
+        </div>
+
+        <!-- Paypal -->
+        <div #paypal class="text-center"></div>
+
+      </div>
+
+    </div>
+
+  </section><!-- End Contact Section -->
+
+
+  <!-- Successfull Payment -->
+  <div *ngIf="prenotaState == 3" class="container">
+    <div class="section-header">
+      <p>Prenotazione avvenuta con<span> SUCCESSO</span></p>
+      {{redirect()}}
+    </div>
+  </div>
+
+</section>

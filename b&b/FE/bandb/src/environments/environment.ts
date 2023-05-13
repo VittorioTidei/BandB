@@ -4,5 +4,6 @@
 
 export const environment = {
     production: false,
-    APIEndpoint: "https://backend.beb-bonifazi.it/api/v1"
+    APIEndpoint: "https://backend.beb-bonifazi.it/api/v1",
+    roomPrice: 60
   };

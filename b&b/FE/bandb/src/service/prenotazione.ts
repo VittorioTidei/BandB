@@ -7,6 +7,7 @@ export class Prenotazione{
     data_inizio: Date;
     data_fine: Date;
     camera: number;
+    ospiti: number;
 
     constructor(){}
     

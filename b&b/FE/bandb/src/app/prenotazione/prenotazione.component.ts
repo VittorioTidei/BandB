@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { Prenotazione } from 'src/service/prenotazione';
+import { environment } from 'src/environments/environment';
 
 declare var paypal;
 
@@ -16,12 +17,15 @@ export class PrenotazioneComponent implements OnInit{
   form:FormGroup;
   prenotazione: Prenotazione = new Prenotazione();
   prenotazioni: Prenotazione[];
-  prenota: boolean = false;
+  prenotaState: number = 0;
+  numGiorni: number;
   success: boolean = false;
   details: any;
+  roomPrice: number = environment.roomPrice;
+  dataInizio: string;
+  dataFine: string;
 
   @ViewChild('paypal', {static: true}) paymentElement : ElementRef;
-  
 
 
    constructor(public fb:FormBuilder, private http: HttpClient, public PrenotazioneService: PrenotazioneService){
@@ -119,25 +123,20 @@ export class PrenotazioneComponent implements OnInit{
   }
 
   callPrenota() {
-    this.success = true;
+    this.prenotaState = 3;
     this.PrenotazioneService.addPrenotazione(this.prenotazione).subscribe();
   }
 
-  redirect() {
-    window.setTimeout(function(){ window.location.href = "/index.html"; }, 5000);
-    
-  }
-
-  send() {
-    this.prenotazione = this.form.value;
-    this.prenota = true;
+  renderPaypal() {
+    this.prenotaState = 2;
+    const total: number = this.roomPrice * this.prenotazione.ospiti * this.numGiorni;
 
     paypal.Buttons({
       createOrder: function (data, actions) {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: 50
+              value: total
             }
           }]
         });
@@ -150,5 +149,16 @@ export class PrenotazioneComponent implements OnInit{
         window.location.href = "/index.html";
       }
     }).render(this.paymentElement.nativeElement);
+
+  }
+
+  redirect() { window.setTimeout(function(){ window.location.href = "/index.html"; }, 5000); }
+
+  send() {
+    this.prenotazione = this.form.value;
+    this.dataInizio = this.prenotazione.data_inizio.toISOString().slice(0,10);
+    this.dataFine = this.prenotazione.data_fine.toISOString().slice(0,10);
+    this.numGiorni = Math.ceil(Math.abs(this.prenotazione.data_inizio.valueOf() - this.prenotazione.data_fine.valueOf()) / (1000 * 3600 * 24) );
+    this.prenotaState = 1;
   }
 }
