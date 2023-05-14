@@ -34,7 +34,7 @@ public class PrenotazioneController {
 
     @GetMapping(value = "/healthcheck")
     @ResponseStatus(HttpStatus.OK)
-    public void handleNotifications(){
+    public void healthcheck(){
     }
 
 }
