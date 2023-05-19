@@ -72,10 +72,13 @@ export class PrenotazioneComponent implements OnInit{
   increment(){
     const num = document.getElementById('num') as HTMLInputElement | null;
   
-    if(num.valueAsNumber < 3){
+    
+    if(num.valueAsNumber < 3 && this.form.get("camera").value != 102){
       num.valueAsNumber++;
       this.form.get("ospiti").setValue(num.valueAsNumber);
-
+    } else if(num.valueAsNumber < 2) {
+      num.valueAsNumber++;
+      this.form.get("ospiti").setValue(num.valueAsNumber);
     }
     
   }
@@ -92,12 +95,31 @@ export class PrenotazioneComponent implements OnInit{
     return (this.isAfter(date, date_I) && this.isBefore(date, date_F));
   }
 
+  checkOverlap() {
+    const num = document.getElementById('num') as HTMLInputElement | null;
+    this.form.controls['data_inizio'].setErrors(null);
+    this.form.controls['data_fine'].setErrors(null);
+
+    if(num.valueAsNumber > 2 && this.form.get("camera").value == 102){
+      num.valueAsNumber = 1;
+    }
+
+    this.prenotazioni.forEach(element => {
+      if (this.form.controls['camera'].value == element.camera) {
+        if (this.isInRange(new Date(this.form.get("data_inizio").value), new Date(element.data_inizio), new Date(this.form.get("data_fine").value))) {
+          this.form.controls['data_inizio'].setErrors({'incorrect': true});
+          this.form.controls['data_fine'].setErrors({'incorrect': true});
+        }
+      }
+    });
+}
+
 
   myFilter = (d: Date): boolean => {
-    /*
-      TRUE - DISPONIBILE
-      FALSE - DISABILITATA
-    */
+
+      //TRUE - DISPONIBILE
+      //FALSE - DISABILITATA
+    
     var filtered: boolean = true;
     var checked: boolean = false;
     var camera = this.form.controls['camera'].value;

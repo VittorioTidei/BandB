@@ -39,11 +39,11 @@
                     Ecco cosa potete aspettarvi quando prenotate con noi:
                   </p>
                   <ul>
-                    <li><i class="bi bi-check2-all"></i></li>
-                    <li><i class="bi bi-check2-all"></i> Ti permetterà di prenotare la camera richiesta e assicurare la
-                      disponibilità al momento del tuo arrivo.</li>
-                    <li><i class="bi bi-check2-all"></i> Questo deposito verrà sottratto dall'importo totale
-                      dell'affitto della camera.</li>
+                    <li><i class="bi bi-cup-hot-fill"></i>Macchina del caffè</li>
+                    <li><i class="bi bi-wifi"></i>Wifi gratuito</li>
+                    <li><i class="bi bi-tv"></i>Smart TV</li>
+                    <li><i class="bi bi-usb-mini-fill"></i>Biancheria da letto e da bagno</li>
+                    <li><i class="bi bi-badge-wc-fill"></i>Bagno privato con asciugacapelli</li>
                   </ul>
 
                 </div>
@@ -110,7 +110,7 @@
           </div>
 
           <div class="form-group">
-            <select class="form-control" formControlName="camera" [class.is-invalid]="form.get('camera').invalid">
+            <select class="form-control" formControlName="camera" (change)="checkOverlap()" [class.is-invalid]="form.get('camera').invalid">
               <option>101</option>
               <option>102</option>
               <option>103</option>
@@ -121,16 +121,19 @@
             <mat-form-field appearance="fill">
 
               <mat-date-range-input [dateFilter]="myFilter" [rangePicker]="picker">
-                <input matStartDate matInput placeholder="Da" formControlName="data_inizio"
-                  [class.is-invalid]="form.get('data_inizio').invalid">
-                <input matEndDate matInput placeholder="A" formControlName="data_fine"
-                  [class.is-invalid]="form.get('data_inizio').invalid">
+                <input matStartDate matInput  placeholder="Da" formControlName="data_inizio" [class.is-invalid]="form.get('data_inizio').invalid">
+                <input matEndDate matInput (dateChange)="checkOverlap()" placeholder="A" formControlName="data_fine" [class.is-invalid]="form.get('data_fine').invalid">
               </mat-date-range-input>
 
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
 
             </mat-form-field>
+            <div *ngIf="form.get('data_inizio').invalid && form.get('data_inizio').touched">
+              <small *ngIf="form.get('data_inizio').errors" class="text-danger">
+                Inserisci una periodo valido
+              </small>
+            </div>
           </div>
 
           <div class="form-group">
