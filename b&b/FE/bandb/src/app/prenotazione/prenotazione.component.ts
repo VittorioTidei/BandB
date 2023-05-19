@@ -49,7 +49,7 @@ export class PrenotazioneComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.PrenotazioneService.getPrenotazione().subscribe(data => {
+    this.PrenotazioneService.getPrenotazioneDate().subscribe(data => {
       this.prenotazioni = data;
     });
 
