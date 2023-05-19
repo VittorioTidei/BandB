@@ -1,6 +1,7 @@
 package com.unicam.bandb.prenotazione;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 
@@ -48,6 +49,13 @@ public class Prenotazione {
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
         this.ospiti = ospiti;
+    }
+
+    public Prenotazione(long id, int camera, LocalDate data_inizio, LocalDate data_fine){
+        this.id = id;
+        this.camera = camera;
+        this.data_inizio = data_inizio;
+        this.data_fine = data_fine;
     }
 
     public long getId() {
