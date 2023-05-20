@@ -1,477 +1,478 @@
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
   
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center section-border">
-    <div class="container">
-        <div class="col-lg-5 d-flex flex-column">
-          <h2>Goditi la tua vacanza<br>La magia del Conero</h2>
-          <ngb-carousel 
-          [showNavigationArrows]="false"
-          [interval]="10000"
-          [showNavigationIndicators]="false">
-            <ng-template ngbSlide>
-              <p>Il suono delle onde e l'odore del mare aggiungono un'aura di serenità alla tua vacanza.</p>
-            </ng-template>
-            <ng-template ngbSlide>
-              <p>La vista delle barche che dondolano in riva al mare e delle case colorate che si affacciano sulla costa crea un'atmosfera unica di pittoresca bellezza.</p>
-            </ng-template>
-            <ng-template ngbSlide>
-              <p>Camminare lungo il lungomare di Marcelli, con le acque blu del mare che si estendono all'infinito, è un'esperienza che cattura la bellezza e la pace del luogo.</p>
-            </ng-template>
-            <ng-template ngbSlide>
-              <p>I tramonti spettacolari sulla spiaggia, con i colori caldi del sole che si riflettono sulle onde, creano un'atmosfera di incantevole bellezza che rimane impressa nella mente per sempre.</p>
-            </ng-template>
-          </ngb-carousel>
-          <div class="d-flex">
-            <a class="btn-book-a-table" [routerLink]="['prenotazione']">Prenota</a>
-          </div>
-        </div>
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center section-border">
+
+  <div class="container">
+
+    <div class="col-lg-5 d-flex flex-column">
+
+      <h2>Goditi la tua vacanza<br>La magia del Conero</h2>
+      <!-- Carousel with phrases -->
+      <ngb-carousel [showNavigationArrows]="false" [interval]="10000" [showNavigationIndicators]="false">
+
+          <ng-template ngbSlide>
+            <p>Il suono delle onde e l'odore del mare aggiungono un'aura di serenità alla tua vacanza.</p>
+          </ng-template>
+            
+          <ng-template ngbSlide>
+            <p>La vista delle barche che dondolano in riva al mare e delle case colorate che si affacciano sulla costa crea
+              un'atmosfera unica di pittoresca bellezza.</p>
+          </ng-template>
+            
+          <ng-template ngbSlide>
+            <p>Camminare lungo il lungomare di Marcelli, con le acque blu del mare che si estendono all'infinito, è un'esperienza
+              che cattura la bellezza e la pace del luogo.</p>
+          </ng-template>
+            
+          <ng-template ngbSlide>
+            <p>I tramonti spettacolari sulla spiaggia, con i colori caldi del sole che si riflettono sulle onde, creano
+              un'atmosfera di incantevole bellezza che rimane impressa nella mente per sempre.</p>
+          </ng-template>
+
+      </ngb-carousel>
+
+      <div class="d-flex">
+        <a class="btn-book-a-table" [routerLink]="['prenotazione']">Prenota</a>
+      </div>
+
     </div>
-  </section><!-- End Hero Section -->
+  </div>
+</section>
+<!-- End Hero Section -->
 
-  <main id="main">
+<main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
 
-        <div class="section-header">
-          <h2>About Us</h2>
-          <p>Learn More <span>About Us</span></p>
+      <div class="section-header">
+        <h2>About Us</h2>
+        <p>Learn More <span>About Us</span></p>
+      </div>
+
+      <div class="row gy-4">
+
+        <div class="col-lg-7 position-relative about-img">
+          <div class="call-us position-absolute">
+            <h4>Prenota</h4>
+            <p>+39 3333635592</p>
+          </div>
         </div>
 
-        <div class="row gy-4">
-          <div class="col-lg-7 position-relative about-img">
-            <div class="call-us position-absolute">
-              <h4>Prenota</h4>
-              <p>+39 3333635592</p>
+        <div class="col-lg-5 d-flex align-items-end">
+          <div class="content ps-0 ps-lg-5">
+
+            <p class="fst-italic">
+              Benvenuti al nostro Bed and Breakfast! Siamo un'azienda a conduzione familiare, dedicata a offrire un'esperienza di soggiorno indimenticabile ai nostri ospiti. Situato in una posizione strategica, il nostro B&B è il luogo ideale per coloro che desiderano trascorrere una vacanza rilassante, vicino alle attrazioni locali e alle bellezze naturali della zona.
+            </p>
+
+            <ul>
+              <li><i class="bi bi-check2-all"></i> Il nostro B&B offre camere confortevoli e arredate con gusto, dotate di servizi privati e di tutti i comfort necessari per garantire un soggiorno piacevole e riposante.</li>
+              <li><i class="bi bi-check2-all"></i> Offriamo il servizio colazione personalizzato, infatti nelle camere sono presenti macchina del caffè e mini-frigo dove ognuno potrà preparare la colazione a seconda dei propri gusti.</li>
+              <li><i class="bi bi-check2-all"></i> Siamo impegnati anche nella promozione del turismo sostenibile, adottando pratiche eco-friendly e valorizzando i prodotti locali.</li>
+            </ul>
+
+            <p>
+              Siamo ansiosi di darvi il benvenuto al nostro Bed and Breakfast e di farvi scoprire le bellezze della nostra città!
+            </p>
+
+            <div class="position-relative mt-4">
+              <iframe class="img-fluid rounded" width="560" height="315" src="https://www.youtube.com/embed/xARSRVbqQl8?start=10" title="Numana No Stress Zone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
+
           </div>
-          <div class="col-lg-5 d-flex align-items-end">
-            <div class="content ps-0 ps-lg-5">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
 
-              
+  <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us section-bg">
+    <div class="container">
 
-              <p class="fst-italic">
-                Benvenuti al nostro Bed and Breakfast! Siamo un'azienda a conduzione familiare, dedicata a offrire un'esperienza di soggiorno indimenticabile ai nostri ospiti. Situato in una posizione strategica, il nostro B&B è il luogo ideale per coloro che desiderano trascorrere una vacanza rilassante, vicino alle attrazioni locali e alle bellezze naturali della zona.
-              </p>
-              <ul>
-                <li><i class="bi bi-check2-all"></i> Il nostro B&B offre camere confortevoli e arredate con gusto, dotate di servizi privati e di tutti i comfort necessari per garantire un soggiorno piacevole e riposante.</li>
-                <li><i class="bi bi-check2-all"></i> Offriamo il servizio colazione personalizzato, infatti nelle camere sono presenti macchina del caffè e mini-frigo dove ognuno potrà preparare la colazione a seconda dei propri gusti.</li>
-                <li><i class="bi bi-check2-all"></i> Siamo impegnati anche nella promozione del turismo sostenibile, adottando pratiche eco-friendly e valorizzando i prodotti locali.</li>
-              </ul>
-              <p>
-                Siamo ansiosi di darvi il benvenuto al nostro Bed and Breakfast e di farvi scoprire le bellezze della nostra città!
-              </p>
+      <div class="row gy-4">
 
-              <div class="position-relative mt-4">
-                <iframe class="img-fluid rounded" width="560" height="315" src="https://www.youtube.com/embed/xARSRVbqQl8?start=10" title="Numana No Stress Zone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <!-- Why Box -->
+        <div class="col-lg-4 ">
+          <div class="why-box">
+
+            <h3>Perchè sceglierci?</h3>
+            <p>Ci sono molte ragioni per scegliere il nostro Bed and Breakfast rispetto ad altri alloggi disponibili nella zona.</p>
+
+            <div class="text-center">
+              <a href="#" class="more-btn">Scopri di più<i class="bx bx-chevron-right"></i></a>
+            </div>
+
+          </div>
+        </div>
+        <!-- End Why Box -->
+
+        <div class="col-lg-8 d-flex align-items-center">
+          <div class="row gy-4">
+
+            <div class="col-xl-4">
+              <div class="icon-box d-flex flex-column justify-content-top align-items-center">
+                <i class="bi bi-clipboard-data"></i>
+                <h4>Facile da prenotare</h4>
+                <p> 
+                  Abbiamo reso il processo di prenotazione il più facile possibile, in modo che possiate prenotare la vostra camera in pochi semplici passaggi.
+                </p>
               </div>
-            </div>
-          </div>
-        </div>
+            </div><!-- End Icon Box -->
 
-      </div>
-    </section><!-- End About Section -->
+            <div class="col-xl-4">
+              <div class="icon-box d-flex flex-column justify-content-top align-items-center">
+                <i class="bi bi-gem"></i>
+                <h4>Posizione eccellente</h4>
+                <p>La posizione del nostro Bed and Breakfast è senza dubbio la migliore per chiunque desideri godere della bellezza del mare. 
+                  Situato a pochi passi dalla spiaggia, il nostro B&B offre la comodità di avere il mare a pochi passi dalla porta di casa.
+                </p>
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us section-bg">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 ">
-            <div class="why-box">
-              <h3>Perchè sceglierci?</h3>
-              <p>Ci sono molte ragioni per scegliere il nostro Bed and Breakfast rispetto ad altri alloggi disponibili nella zona.</p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Scopri di più<i class="bx bx-chevron-right"></i></a>
               </div>
-            </div>
-          </div><!-- End Why Box -->
+            </div><!-- End Icon Box -->
 
-          <div class="col-lg-8 d-flex align-items-center">
-            <div class="row gy-4">
+            <div class="col-xl-4">
+              <div class="icon-box d-flex flex-column justify-content-top align-items-center">
+                <i class="bi bi-inboxes"></i>
+                <h4>Servizi in camera</h4>
+                <p>
+                  Grazie alla macchinetta del caffè e al frigobar, i nostri ospiti possono scegliere e preparare la loro colazione preferita senza dover uscire dalla camera, risparmiando tempo e godendo di maggiore privacy.
+                </p>
+              </div>
+            </div><!-- End Icon Box -->
 
-              <div class="col-xl-4">
-                <div class="icon-box d-flex flex-column justify-content-top align-items-center">
-                  <i class="bi bi-clipboard-data"></i>
-                  <h4>Facile da prenotare</h4>
-                  <p> 
-                    Abbiamo reso il processo di prenotazione il più facile possibile, in modo che possiate prenotare la vostra camera in pochi semplici passaggi.
-                  </p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-xl-4">
-                <div class="icon-box d-flex flex-column justify-content-top align-items-center">
-                  <i class="bi bi-gem"></i>
-                  <h4>Posizione eccellente</h4>
-                  <p>La posizione del nostro Bed and Breakfast è senza dubbio la migliore per chiunque desideri godere della bellezza del mare. 
-                    Situato a pochi passi dalla spiaggia, il nostro B&B offre la comodità di avere il mare a pochi passi dalla porta di casa.</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-              <div class="col-xl-4">
-                <div class="icon-box d-flex flex-column justify-content-top align-items-center">
-                  <i class="bi bi-inboxes"></i>
-                  <h4>Servizi in camera</h4>
-                  <p>Grazie alla macchinetta del caffè e al frigobar, i nostri ospiti possono scegliere e preparare la loro colazione preferita senza dover uscire dalla camera, risparmiando tempo e godendo di maggiore privacy.</p>
-                </div>
-              </div><!-- End Icon Box -->
-
-            </div>
           </div>
-
         </div>
-
       </div>
-    </section><!-- End Why Us Section -->
 
-    <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
-      <div class="container">
+    </div>
+  </section>
+  <!-- End Why Us Section -->
+
+  <!-- ======= Stats Counter Section ======= -->
+  <section id="stats-counter" class="stats-counter">
+      <div class="container"></div>
+  </section>
+  <!-- End Stats Counter Section -->
+
+  <!-- ======= Menu Section ======= -->
+  <section id="menu" class="menu">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Our rooms</h2>
+        <p>Le nostre <span>Camere</span></p>
       </div>
-    </section><!-- End Stats Counter Section -->
 
-    <!-- ======= Menu Section ======= -->
-    <section id="menu" class="menu">
-      <div class="container">
+      <div class="container-fluid">
 
-        <div class="section-header">
-          <h2>Our rooms</h2>
-          <p>Le nostre <span>Camere</span></p>
-        </div>
+        <!-- Room tabs -->
+        <ul ngbNav #nav="ngbNav" class="nav nav-tabs d-flex justify-content-center">
+          <!-- 101 -->
+          <li ngbNavItem class="nav-item">
+            <button ngbNavLink>101</button>
+            <ng-template ngbNavContent>
 
-        <div class="container-fluid">
-          <!-- Room tabs -->
-          <ul ngbNav #nav="ngbNav" class="nav nav-tabs d-flex justify-content-center">
-            <!-- 101 -->
-            <li ngbNavItem class="nav-item">
-              <button ngbNavLink>101</button>
-              <ng-template ngbNavContent>
-                <!-- 101 Carousel -->
-                <ngb-carousel>
+              <!-- 101 Carousel -->
+              <ngb-carousel>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[0]" alt="">
                   </div>
                 </ng-template>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[1]" alt="">
                   </div>
                 </ng-template>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[2]" alt="">
                   </div>
                 </ng-template>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[3]" alt="">
                   </div>
                 </ng-template>
+
               </ngb-carousel>
-                <!-- 101 Carousel end -->
+              <!-- 101 Carousel end -->
+
             </ng-template>
-            </li>
+          </li>
 
-            <!-- 102 -->
-            <li ngbNavItem class="nav-item">
-              <button ngbNavLink>102</button>
-              <ng-template ngbNavContent>
-                <!-- 102 Carousel -->
-                PlaceHolder
-                <!-- 102 Carousel end -->
-              </ng-template>
-            </li>
+          <!-- 102 -->
+          <li ngbNavItem class="nav-item">
+            <button ngbNavLink>102</button>
+            <ng-template ngbNavContent>
+              <!-- 102 Carousel -->
+              PlaceHolder
+              <!-- 102 Carousel end -->
+            </ng-template>
+          </li>
 
-            <!-- 103 -->
-            <li ngbNavItem class="nav-item">
-              <button ngbNavLink>103</button>
-              <ng-template ngbNavContent>
-               <!-- 103 Carousel -->
-               <ngb-carousel>
-               <ng-template ngbSlide>
-                <div class="carousel-wrapper">
-                  <img [src]="gallery[4]" alt="103">
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="carousel-wrapper">
-                  <img [src]="gallery[5]" alt="">
-                </div>
-              </ng-template>
-            </ngb-carousel>
-               <!-- 103 Carousel end -->
-              </ng-template>
-              
-            </li>
+          <!-- 103 -->
+          <li ngbNavItem class="nav-item">
+            <button ngbNavLink>103</button>
+            <ng-template ngbNavContent>
 
-            <!-- 104 -->
-            <li ngbNavItem class="nav-item">
-              <button ngbNavLink>104</button>
-              <ng-template ngbNavContent>
-                <!-- 104 Carousel -->
+              <!-- 103 Carousel -->
               <ngb-carousel>
+
+                <ng-template ngbSlide>
+                  <div class="carousel-wrapper">
+                    <img [src]="gallery[4]" alt="103">
+                  </div>
+                </ng-template>
+
+                <ng-template ngbSlide>
+                  <div class="carousel-wrapper">
+                    <img [src]="gallery[5]" alt="">
+                  </div>
+                </ng-template>
+
+              </ngb-carousel>
+               <!-- 103 Carousel end -->
+            </ng-template>  
+          </li>
+
+          <!-- 104 -->
+          <li ngbNavItem class="nav-item">
+            <button ngbNavLink>104</button>
+            <ng-template ngbNavContent>
+              <!-- 104 Carousel -->
+              <ngb-carousel>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[6]" alt="">
                   </div>
                 </ng-template>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[7]" alt="">
                   </div>
                 </ng-template>
+
                 <ng-template ngbSlide>
                   <div class="carousel-wrapper">
                     <img [src]="gallery[8]" alt="">
                   </div>
                 </ng-template>
+
               </ngb-carousel>
-                <!-- 104 Carousel end -->
-              </ng-template>
-            </li>
-          </ul>
-          <div [ngbNavOutlet]="nav"></div>
-          
-          
-          
-          </div>
+              <!-- 104 Carousel end -->
+            </ng-template>
+          </li>
 
-      
+        </ul>
+
+        <div [ngbNavOutlet]="nav"></div>
+        
       </div>
-    </section><!-- End Menu Section -->
+
+    </div>
+  </section><!-- End Menu Section -->
 
 
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery section-bg">
-      <div class="container">
-
-        <div class="section-header">
-          <h2>gallery</h2>
-          <p>Check <span>Our Gallery</span></p>
-        </div>
-
-        <!-- Gallery -->
-        <ngb-carousel>
-          <!-- First Slide -->
-          <ng-template ngbSlide>
-            <div class="row">
-
-              <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                <img
-                  [src]="gallery[0]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-                <img
-                  [src]="gallery[1]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-              </div>
-
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <img
-                  [src]="gallery[2]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-                <img
-                  [src]="gallery[3]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-              </div>
-
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                <img
-                  [src]="gallery[4]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-                <img
-                  [src]="gallery[5]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-              </div>
-
-            </div>
-          </ng-template>
-
-          <!-- Second Slide -->
-          <ng-template ngbSlide>
-            <div class="row">
-
-              <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                <img
-                  [src]="gallery[6]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                />
-                <img
-                  [src]="gallery[7]"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt=""
-                    />
-              </div>
-
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                  <img
-                    [src]="gallery[8]"
-                    class="w-100 shadow-1-strong rounded mb-4"
-                    alt=""
-                  />
-                  <img
-                    [src]="gallery[9]"
-                    class="w-100 shadow-1-strong rounded mb-4"
-                    alt=""
-                  />
-              </div>
-
-              <div class="col-lg-4 mb-4 mb-lg-0">
-                  <img
-                    [src]="gallery[10]"
-                    class="w-100 shadow-1-strong rounded mb-4"
-                    alt=""
-                  />
-              </div>
-
-            </div>
-          </ng-template>
-
-        </ngb-carousel>
-
-      </div>
-    </section><!-- End Gallery Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-header">
-          <h2>Contact</h2>
-          <p>Need Help? <span>Contact Us</span></p>
-        </div>
-
-        <div class="mb-3">
-          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d351.5142211405784!2d13.628899522808783!3d43.49159156696791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1332795c0d4899a5%3A0xdc4d5619c65be59a!2sVia%20Capri%2C%204%2C%2060026%20Marcelli%20AN!5e0!3m2!1sit!2sit!4v1680651911553!5m2!1sit!2sit" frameborder="0" allowfullscreen></iframe>
-        </div><!-- End Google Maps -->
-
-        <div class="row gy-4">
-
-          <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-map flex-shrink-0"></i>
-              <div>
-                <h3>Indirizzo</h3>
-                <p>Via Capri 4, Marcelli di Numana (AN), 60026, Marche, IT</p>
-              </div>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item d-flex align-items-center">
-              <i class="icon bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>francesco_bonifazi@hotmail.it</p>
-              </div>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item  d-flex align-items-center">
-              <i class="icon bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+39 3333635592</p>
-              </div>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery section-bg">
     <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-geo-alt icon"></i>
-          <div>
-            <h4>Indirizzo</h4>
-            <p>
-              Via Capri 4 <br>
-              Marcelli, (AN) Marche - IT<br>
-            </p>
+
+      <div class="section-header">
+        <h2>Gallery</h2>
+        <p>Check <span>Our Gallery</span></p>
+      </div>
+
+      <!-- Gallery -->
+      <ngb-carousel>
+        
+        <!-- First Slide -->
+        <ng-template ngbSlide>
+          <div class="row">
+
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+              <img [src]="gallery[0]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+              <img [src]="gallery[1]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <img [src]="gallery[2]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+              <img [src]="gallery[3]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <img [src]="gallery[4]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+              <img [src]="gallery[5]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+          </div>
+        </ng-template>
+
+        <!-- Second Slide -->
+        <ng-template ngbSlide>
+          <div class="row">
+
+            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+              <img [src]="gallery[6]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+                <img [src]="gallery[7]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <img [src]="gallery[8]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+              <img [src]="gallery[9]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <img [src]="gallery[10]" class="w-100 shadow-1-strong rounded mb-4" alt=""/>
+            </div>
+
+          </div>
+        </ng-template>
+
+      </ngb-carousel>
+
+    </div>
+  </section>
+  <!-- End Gallery Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p>Need Help? <span>Contact Us</span></p>
+      </div>
+
+      <div class="mb-3">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d351.5142211405784!2d13.628899522808783!3d43.49159156696791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1332795c0d4899a5%3A0xdc4d5619c65be59a!2sVia%20Capri%2C%204%2C%2060026%20Marcelli%20AN!5e0!3m2!1sit!2sit!4v1680651911553!5m2!1sit!2sit" frameborder="0" allowfullscreen></iframe>
+      </div><!-- End Google Maps -->
+
+      <div class="row gy-4">
+        <div class="col-md-6">
+
+          <div class="info-item  d-flex align-items-center">
+            <i class="icon bi bi-map flex-shrink-0"></i>
+            <div>
+              <h3>Indirizzo</h3>
+              <p>Via Capri 4, Marcelli di Numana (AN), 60026, Marche, IT</p>
+            </div>
           </div>
 
-        </div>
+        </div><!-- End Info Item -->
 
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-telephone icon"></i>
-          <div>
-            <h4>Prenotazioni</h4>
-            <p>
-              <strong>Phone:</strong> +39 3333635592<br>
-              <strong>Email:</strong> francesco_bonifazi@hotmail.it<br>
-            </p>
-          </div>
-        </div>
+        <div class="col-md-6">
 
-        <div class="col-lg-3 col-md-6 footer-links d-flex">
-          <i class="bi bi-clock icon"></i>
-          <div>
-            <h4>Stagioni</h4>
-            <p>
-              Invernale - Estiva
-            </p>
+          <div class="info-item d-flex align-items-center">
+            <i class="icon bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>francesco_bonifazi@hotmail.it</p>
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        </div><!-- End Info Item -->
+
+        <div class="col-md-6">
+
+          <div class="info-item  d-flex align-items-center">
+            <i class="icon bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+39 3333635592</p>
+            </div>
           </div>
-        </div>
+
+        </div><!-- End Info Item -->
 
       </div>
     </div>
+  </section><!-- End Contact Section -->
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright Yummy<strong><span>2023</span></strong>. All Rights Reserved
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="container">
+
+    <div class="row gy-3">
+
+      <div class="col-lg-3 col-md-6 d-flex">
+        <i class="bi bi-geo-alt icon"></i>
+        <div>
+          <h4>Indirizzo</h4>
+          <p>
+            Via Capri 4 <br>
+            Marcelli, (AN) Marche - IT<br>
+          </p>
+        </div>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+      <div class="col-lg-3 col-md-6 footer-links d-flex">
+        <i class="bi bi-telephone icon"></i>
+        <div>
+          <h4>Prenotazioni</h4>
+          <p>
+            <strong>Phone:</strong> +39 3333635592<br>
+            <strong>Email:</strong> francesco_bonifazi@hotmail.it<br>
+          </p>
+        </div>
       </div>
+
+      <div class="col-lg-3 col-md-6 footer-links d-flex">
+        <i class="bi bi-clock icon"></i>
+        <div>
+          <h4>Stagioni</h4>
+          <p>
+            Invernale - Estiva
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 footer-links">
+        <h4>Follow Us</h4>
+        <div class="social-links d-flex">
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright Yummy<strong><span>2023</span></strong>. All Rights Reserved
     </div>
 
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </div>
 
-  <!-- Vendor JS Files -->
-  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+</footer>
+<!-- End Footer -->
 
-  <!-- Template Main JS File -->
-  <script src="../../assets/js/main.js"></script>
+<!-- Vendor JS Files -->
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="../../assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../../assets/js/main.js"></script>
