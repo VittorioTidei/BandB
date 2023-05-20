@@ -24,5 +24,4 @@ export class PrenotazioneService extends Prenotazione{
         return this.http.post<Prenotazione>(`${this.apiServerUrl}/prenotazione/add`, prenotazione);
     }
 
-
 }
