@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapte
     AppComponent,
     HomeComponentComponent,
     NavbarComponent,
-    PrenotazioneComponent
+    PrenotazioneComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
