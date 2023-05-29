@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../service/user';
 import { LoginuserService } from 'src/service/loginuser.service';
-import { error } from 'jquery';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -12,7 +12,7 @@ export class UserLoginComponent {
 
   user:User = new User();
 
-  constructor(private loginuserservice: LoginuserService) { }
+  constructor(private loginuserservice: LoginuserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -21,7 +21,7 @@ export class UserLoginComponent {
   userLogin(){
     console.log(this.user)
     this.loginuserservice.loginUser(this.user).subscribe(data=>{
-      alert("Login Successfully!")
+      this.router.navigate(['dashboardLogin']);
     },error=>alert("Email or password invalid!"))
   }
 }
