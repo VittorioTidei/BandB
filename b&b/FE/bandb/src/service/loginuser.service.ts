@@ -14,8 +14,8 @@ export class LoginuserService extends User{
     super();
    }
 
-  loginUser(user: User):Observable<object>{
+  loginUser(user: User): Observable<any>{
     console.log(user)
-    return this.httpClient.post(`${this.apiServerUrl}/user/login`, user);
+    return this.httpClient.post<User>(`${this.apiServerUrl}/auth/token`, user);
   }
 }

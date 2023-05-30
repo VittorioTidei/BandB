@@ -54,14 +54,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-           //     .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                    //    .requestMatchers("/api/auth/token").permitAll()
+                        //.requestMatchers("/api/auth/token").permitAll()
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
                 )
-          //     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-          //      .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+               .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .oauth2Login(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .build();
