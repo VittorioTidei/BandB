@@ -1,7 +1,13 @@
 package com.unicam.bandb;
 
+//import com.unicam.bandb.jwt.api.User;
+//import com.unicam.bandb.jwt.api.UserRepository;
+//import com.unicam.bandb.security.RsaKeyProperties;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -9,8 +15,10 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-
+//@EnableConfigurationProperties(RsaKeyProperties.class)
 @SpringBootApplication
 public class BandbApplication {
 
@@ -35,6 +43,5 @@ public class BandbApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
-
 
 }
