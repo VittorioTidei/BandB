@@ -29,4 +29,12 @@ public class AuthController {
         return tokenService.generateToken(authentication);
 
     }
+
+     /*
+    @PostMapping("/token")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String token(Authentication authentication) {
+        return tokenService.generateToken(authentication);
+
+    }*/
 }
