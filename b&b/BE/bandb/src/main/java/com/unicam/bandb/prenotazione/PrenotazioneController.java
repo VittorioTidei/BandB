@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "api/v1/prenotazione")
 public class PrenotazioneController {
 

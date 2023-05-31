@@ -27,6 +27,7 @@
     "angular-resizable-element": "^7.0.2",
     "angularx-flatpickr": "^7.1.0",
     "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
     "date-fns": "^2.29.3",
     "moment": "^2.29.4",
     "ng-tabs": "^0.0.2",

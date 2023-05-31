@@ -1,5 +1,5 @@
 package com.unicam.bandb.securitySync;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,5 +36,9 @@ public class AuthController {
     public String token(Authentication authentication) {
         return tokenService.generateToken(authentication);
 
-    }*/
+    }
+
+
 }
+        */
+

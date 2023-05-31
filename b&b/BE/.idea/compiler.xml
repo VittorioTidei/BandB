@@ -10,9 +10,6 @@
         <module name="bandb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bandb" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

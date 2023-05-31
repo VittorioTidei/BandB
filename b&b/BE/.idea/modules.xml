@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BE.iml" filepath="$PROJECT_DIR$/.idea/BE.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bandb/bandb.iml" filepath="$PROJECT_DIR$/bandb/bandb.iml" />
     </modules>
   </component>
 </project>

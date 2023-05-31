@@ -1,5 +1,5 @@
 package com.unicam.bandb.securitySync;
-
+/*
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -39,3 +39,7 @@ public class TokenService {
         return this.encoder.encode(encoderParameters).getTokenValue();
     }
 }
+
+ */
+
+
