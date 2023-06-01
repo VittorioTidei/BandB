@@ -19,16 +19,8 @@ export class UserLoginComponent implements OnInit{
 
   }
 
-  /*userLogin(){
-    console.log(this.user)
-    this.loginuserservice.loginUser(this.user).subscribe(data=>{
-      this.router.navigate(['dashboardLogin']);
-    },error=>alert("Email or password invalid!"))
-  }*/
-
   userLogin(){
     this.loginuserservice.loginUser(this.user).subscribe(data => {
-      console.log(data);
       this.router.navigate(['dashboardLogin']);
     },error=>alert("Email or password invalid!"))
   }

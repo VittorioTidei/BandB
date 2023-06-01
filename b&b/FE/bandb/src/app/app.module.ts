@@ -23,6 +23,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardLoginComponent } from './dashboard-login/dashboard-login.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DashboardLoginComponent } from './dashboard-login/dashboard-login.compo
     NavbarComponent,
     PrenotazioneComponent,
     UserLoginComponent,
-    DashboardLoginComponent
+    DashboardLoginComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,

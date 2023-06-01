@@ -20,20 +20,25 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        var user = User.builder()
-                .email(request.getEmail())
-                //per la password prima di passarla al databse andiamo a codificarla
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER) //assegno il ruolo di user
-                .build();
-        repository.save(user);
-        //in base all'informazioni passate salvate sull'oggetto user, vado a creare il token
-        var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                //nell'autenticazione passo il token appena generato
-                .token(jwtToken)
-                .build();
+    public AuthenticationResponse register(RegisterRequest request) throws Exception {
+        if(!repository.findByEmail(request.getEmail()).isPresent()) {
+            var user = User.builder()
+                    .email(request.getEmail())
+                    //per la password prima di passarla al databse andiamo a codificarla
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .role(Role.USER) //assegno il ruolo di user
+                    .build();
+            repository.save(user);
+            //in base all'informazioni passate salvate sull'oggetto user, vado a creare il token
+            var jwtToken = jwtService.generateToken(user);
+            return AuthenticationResponse.builder()
+                    //nell'autenticazione passo il token appena generato
+                    .token(jwtToken)
+                    .build();
+        }
+        else {
+            throw new Exception();
+        }
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
