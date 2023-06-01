@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**") //dobbiamo autorizzare tutti i metodi della classe AuthenticationController
+                .requestMatchers("/api/v1/auth/**","/api/v1/prenotazione/**") //dobbiamo autorizzare tutti i metodi della classe AuthenticationController
                 .permitAll()
                 .anyRequest()
                 .authenticated()
