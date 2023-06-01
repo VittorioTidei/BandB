@@ -8,9 +8,32 @@
     <!-- Tabs Titles -->
 
     <!-- Login Form -->
-    <form (ngSubmit)="userRegister()">
-      <input type="text" [(ngModel)]="user.email" id="email" class="fadeIn first" name="email" placeholder="Email">
-      <input type="password" [(ngModel)]="user.password" id="password" class="fadeIn second" name="password" placeholder="Password">
+    <!-- Login Form -->
+    <form (ngSubmit)="userRegister()" [formGroup]="form" class="php-email-form p-3 p-md-4">
+
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="Email" email
+          [class.is-invalid]="form.get('email').invalid && form.get('email').touched">
+
+        <div *ngIf="form.get('email').invalid && form.get('email').touched">
+          <small *ngIf="form.get('email').errors" class="text-danger">
+            Inserisci un email valida
+          </small>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password"
+          [class.is-invalid]="form.get('password').invalid && form.get('password').touched">
+
+        <div *ngIf="form.get('password').invalid && form.get('password').touched">
+          <small *ngIf="form.get('password').errors" class="text-danger">
+            Inserisci una password valida
+          </small>
+        </div>
+
+      </div>
       <input type="submit" class="fadeIn third" value="Sign In">
     </form>
 

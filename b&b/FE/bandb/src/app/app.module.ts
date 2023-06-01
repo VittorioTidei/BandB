@@ -24,6 +24,7 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapte
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardLoginComponent } from './dashboard-login/dashboard-login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { RegisterUserCompleteComponent } from './register-user-complete/register-user-complete.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     PrenotazioneComponent,
     UserLoginComponent,
     DashboardLoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    RegisterUserCompleteComponent
   ],
   imports: [
     BrowserModule,

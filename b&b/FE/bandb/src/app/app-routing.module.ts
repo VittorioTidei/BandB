@@ -5,13 +5,15 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardLoginComponent } from './dashboard-login/dashboard-login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { RegisterUserCompleteComponent } from './register-user-complete/register-user-complete.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponentComponent},
   {path:'prenotazione',component:PrenotazioneComponent},
   {path:'login',component:UserLoginComponent},
   {path:'dashboardLogin',component:DashboardLoginComponent},
-  {path:'register',component:RegisterUserComponent}
+  {path:'register',component:RegisterUserComponent},
+  {path:'registerComplete',component:RegisterUserCompleteComponent}
 ];
 
 @NgModule({
