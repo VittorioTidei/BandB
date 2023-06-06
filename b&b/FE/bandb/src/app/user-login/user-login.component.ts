@@ -3,6 +3,8 @@ import { User } from '../../service/user';
 import { LoginuserService } from 'src/service/loginuser.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PrenotazioneService } from 'src/service/prenotazione.service';
+import { userShareService } from 'src/service/userShareSerive';
 
 @Component({
   selector: 'app-user-login',
@@ -11,11 +13,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit{
 
-  user:User = new User();
   form:FormGroup;
 
 
-  constructor(private loginuserservice: LoginuserService, private router: Router, public fb: FormBuilder) {
+  constructor(private loginuserservice: LoginuserService, private router: Router, public fb: FormBuilder, private usersharedservice: userShareService) {
 
       this.form=fb.group({
         'email':['', Validators.required],
@@ -30,16 +31,11 @@ export class UserLoginComponent implements OnInit{
   }
 
   userLogin(){
-    this.user=this.form.value;
-    this.loginuserservice.loginUser(this.user).subscribe(data => {
+    this.usersharedservice.setUser(this.form.value);
+    this.loginuserservice.loginUser(this.usersharedservice.getUser()).subscribe(data => {
       this.router.navigate(['dashboardLogin']);
     },error=>alert("Email or password invalid!"))
   }
-
-  getUserEmail(){
-    return this.user.email;
-  }
-
 
 }
 

@@ -1,1 +1,22 @@
-{{this.prenotazione.toString()}}
+<div class="section-header">
+    <p>Benvenuto<span> {{email}}</span></p>
+</div>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Camera</th>
+                <th>Data Arrivo</th>
+                <th>Data Fine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prenotazione of prenotazioni">
+                <td><span>{{prenotazione.camera}}</span></td>
+                <td><span>{{prenotazione.data_inizio}}</span></td>
+                <td><span>{{prenotazione.data_fine}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
