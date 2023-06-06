@@ -1,6 +1,8 @@
 package com.unicam.bandb.authJwt;
 
 import com.unicam.bandb.configJwt.JwtService;
+import com.unicam.bandb.prenotazione.Prenotazione;
+import com.unicam.bandb.prenotazione.PrenotazioneRepository;
 import com.unicam.bandb.userJwt.Role;
 import com.unicam.bandb.userJwt.User;
 import com.unicam.bandb.userJwt.UserRepository;
@@ -9,6 +11,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //implementa i metodi di registrazione e autenticazione
 @Service
@@ -16,6 +22,7 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
 
     private final UserRepository repository;
+    private final PrenotazioneRepository pRepo;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -61,5 +68,6 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
+
 
 }

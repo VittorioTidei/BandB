@@ -36,5 +36,10 @@ export class UserLoginComponent implements OnInit{
     },error=>alert("Email or password invalid!"))
   }
 
+  getUserEmail(){
+    return this.user.email;
+  }
+
+
 }
 

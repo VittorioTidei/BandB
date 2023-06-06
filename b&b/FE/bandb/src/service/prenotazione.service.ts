@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { User } from "./user"
 import { HttpClient } from '@angular/common/http';
 import { Prenotazione } from "./prenotazione";
 import { environment } from "src/environments/environment";
@@ -17,7 +18,7 @@ export class PrenotazioneService extends Prenotazione{
     }
 
     public getPrenotazioneDate(): Observable<any> {
-        return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/getDate`);
+        return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/getData?email=` );
     }
 
     public addPrenotazione(prenotazione: Prenotazione): Observable<any> {

@@ -18,10 +18,10 @@ export class DashboardLoginComponent implements OnInit{
     }
 
   ngOnInit(): void {
-
+    
     this.PrenotazioneService.getPrenotazioneDate().subscribe(data => {
       this.prenotazioni = data;
-    });
+    },error=>alert("No prenotation found!"))
 
   }
 
