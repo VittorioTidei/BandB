@@ -4,6 +4,7 @@ import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { OnInit } from '@angular/core';
 import { UserLoginComponent } from "../user-login/user-login.component"
 import { userShareService } from 'src/service/userShareSerive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-login',
@@ -16,17 +17,22 @@ export class DashboardLoginComponent implements OnInit {
     prenotazioni: Prenotazione[];
     email: String;
 
-    constructor(public PrenotazioneService: PrenotazioneService, private usershareservice: userShareService) {
+    constructor(public PrenotazioneService: PrenotazioneService,private router: Router, private usershareservice: userShareService) {
     }
 
   ngOnInit(): void {
     this.PrenotazioneService.getPrenotazioneEmail().subscribe(data => {
       this.prenotazioni = data;
       this.email = this.usershareservice.getEmail();
-    },error=>alert("No prenotation found!"))
+    })
 
   }
 
-
+  deleteUser(){
+    this.PrenotazioneService.deleteUser().subscribe(data => {
+      alert("Account deleted!");
+      this.router.navigate(['']);
+    },error=>alert("Can't delete account!"))
+  }
 
 }

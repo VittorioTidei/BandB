@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "api/v1/prenotazione")
+@RequestMapping(path = "api/v1/prenotazione/user")
 public class PrenotazioneController {
 
 
@@ -35,6 +35,17 @@ public class PrenotazioneController {
     public List<Prenotazione> getPrenotazioneByEmail (@RequestParam String email) {
         return prenotazioneService.getPrenotazioneByEmail(email);
     }
+
+    @DeleteMapping("/delete")
+    public void deleteUserByEmail (@RequestParam String email) throws Exception {
+        prenotazioneService.deleteUserByEmail(email);
+    }
+
+    @PutMapping("/admin")
+    public void AdminUserByEmail (@RequestParam String email) throws Exception {
+        prenotazioneService.adminUserByEmail(email);
+    }
+
 
 
     @PostMapping("/add")

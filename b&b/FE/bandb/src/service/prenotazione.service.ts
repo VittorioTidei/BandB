@@ -24,6 +24,10 @@ export class PrenotazioneService extends Prenotazione{
         return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/getData?email=${this.usersharedservice.getEmail()}`);
     }
 
+    public deleteUser(): Observable<any> {
+        return this.http.delete(`${this.apiServerUrl}/prenotazione/delete?email=${this.usersharedservice.getEmail()}`);
+    }
+
     public getPrenotazioneDate(): Observable<any> {
         return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/getDate` );
     }

@@ -1,8 +1,8 @@
-<div class="section-header">
+<div class="section-header fadeIn first">
     <p>Benvenuto<span> {{email}}</span></p>
 </div>
 
-<div class="container">
+<div class="container fadeIn second">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -19,4 +19,8 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<div>
+<input type="submit" (click)="deleteUser()" class="fadeIn third fixed-bottom" value="Delete Account">
 </div>

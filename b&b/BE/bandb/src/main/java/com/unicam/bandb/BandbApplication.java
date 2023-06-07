@@ -1,5 +1,8 @@
 package com.unicam.bandb;
 
+import com.unicam.bandb.authJwt.AuthenticationService;
+import com.unicam.bandb.authJwt.RegisterRequest;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +12,8 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static com.unicam.bandb.userJwt.Role.ADMIN;
 
 
 @SpringBootApplication
@@ -35,8 +40,4 @@ public class BandbApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
-
-
-
-
 }

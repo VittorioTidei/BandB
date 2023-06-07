@@ -1,8 +1,12 @@
 package com.unicam.bandb.authJwt;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 //Questa classe contiene gli endpoint dove creare un account e autenticarsi
 @RestController
