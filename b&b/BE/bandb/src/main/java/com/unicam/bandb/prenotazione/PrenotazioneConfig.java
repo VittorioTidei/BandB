@@ -14,13 +14,13 @@ public class PrenotazioneConfig {
 
     @Bean
     CommandLineRunner commandLineRunner(AuthenticationService service){
-            return args-> {
+            return args-> {/*
                 var admin = RegisterRequest.builder()
                         .email("admin@mail.com")
                         .password("password")
                         .role(ADMIN)
                         .build();
-                System.out.println("ADMIN token: "+service.register(admin).getToken());
+                System.out.println("ADMIN token: "+service.register(admin).getToken());*/
             };
 
         }
