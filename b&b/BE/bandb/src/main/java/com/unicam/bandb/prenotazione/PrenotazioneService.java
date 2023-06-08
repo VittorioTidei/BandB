@@ -21,15 +21,7 @@ public class PrenotazioneService {
         this.userRepository = userRepository;
     }
 
-    /* REST DISABILITATO
     public List<Prenotazione> getDate() throws Exception {
-
-        //controllo se ha eseguiro il login
-        if(!AuthenticationService.loggedIn)
-            throw new Exception("Not Logged!");
-
-        //se ha eseguito il loginIn, resetto a false in modo da poter visualizzare i dati solo una volta appena eseguito il login
-        AuthenticationService.loggedIn=false;
 
         List<Prenotazione> prenotazioni = prenotazioneRepository.findAll();
         List<Prenotazione> prenotazioniDate = new ArrayList<>();
@@ -39,7 +31,7 @@ public class PrenotazioneService {
         }
         return prenotazioniDate;
     }
-    */
+
 
     public List<Prenotazione> getPrenotazioneByEmail (String email) throws Exception {
 

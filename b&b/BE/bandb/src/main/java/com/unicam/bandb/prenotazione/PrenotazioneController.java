@@ -19,10 +19,9 @@ public class PrenotazioneController {
         this.prenotazioneService = prenotazioneService;
     }
 
-    /* REST DISABILITATO
     @GetMapping("/getDate")
-    public List<Prenotazione> getDate() throws Exception { return prenotazioneService.getDate(); }ù
-     */
+    public List<Prenotazione> getDate() throws Exception { return prenotazioneService.getDate(); }
+
 
     @GetMapping("/getData")
     public List<Prenotazione> getPrenotazioneByEmail (@RequestParam String email) throws Exception {
