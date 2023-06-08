@@ -39,7 +39,7 @@ public class PrenotazioneController {
     }
 
     @PutMapping("/admin")
-    public void AdminUserByEmail (@RequestParam String email) {
+    public void AdminUserByEmail (@RequestParam String email) throws Exception {
         prenotazioneService.adminUserByEmail(email);
     }
 
