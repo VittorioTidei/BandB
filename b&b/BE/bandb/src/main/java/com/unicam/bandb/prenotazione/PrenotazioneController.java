@@ -2,7 +2,6 @@ package com.unicam.bandb.prenotazione;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,20 +18,13 @@ public class PrenotazioneController {
         this.prenotazioneService = prenotazioneService;
     }
 
-
-    @GetMapping("/get")
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public List<Prenotazione> getPrenotazione(){
-
-       //return prenotazioneService.getPrenotazione();
-        return null;
-    }
-
+    /* REST DISABILITATO
     @GetMapping("/getDate")
-    public List<Prenotazione> getDate(){ return prenotazioneService.getDate(); }
+    public List<Prenotazione> getDate() throws Exception { return prenotazioneService.getDate(); }ù
+     */
 
     @GetMapping("/getData")
-    public List<Prenotazione> getPrenotazioneByEmail (@RequestParam String email) {
+    public List<Prenotazione> getPrenotazioneByEmail (@RequestParam String email) throws Exception {
         return prenotazioneService.getPrenotazioneByEmail(email);
     }
 
@@ -42,11 +34,9 @@ public class PrenotazioneController {
     }
 
     @PutMapping("/admin")
-    public void AdminUserByEmail (@RequestParam String email) throws Exception {
+    public void AdminUserByEmail (@RequestParam String email) {
         prenotazioneService.adminUserByEmail(email);
     }
-
-
 
     @PostMapping("/add")
     public ResponseEntity<Prenotazione> registerNewPrenotazione(@RequestBody Prenotazione prenotazione){

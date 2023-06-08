@@ -1,13 +1,9 @@
 package com.unicam.bandb.prenotazione;
 
 import com.unicam.bandb.authJwt.AuthenticationService;
-import com.unicam.bandb.authJwt.RegisterRequest;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import static com.unicam.bandb.userJwt.Role.ADMIN;
-
 
 @Configuration
 public class PrenotazioneConfig {

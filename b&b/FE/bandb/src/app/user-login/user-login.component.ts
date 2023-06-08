@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../service/user';
 import { LoginuserService } from 'src/service/loginuser.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { userShareService } from 'src/service/userShareSerive';
 
 @Component({

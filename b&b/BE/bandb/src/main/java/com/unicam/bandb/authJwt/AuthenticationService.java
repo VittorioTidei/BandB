@@ -1,8 +1,6 @@
 package com.unicam.bandb.authJwt;
 
 import com.unicam.bandb.configJwt.JwtService;
-import com.unicam.bandb.prenotazione.Prenotazione;
-import com.unicam.bandb.prenotazione.PrenotazioneRepository;
 import com.unicam.bandb.userJwt.Role;
 import com.unicam.bandb.userJwt.User;
 import com.unicam.bandb.userJwt.UserRepository;
@@ -11,10 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
-import java.util.List;
 
 //implementa i metodi di registrazione e autenticazione
 @Service
@@ -22,10 +17,13 @@ import java.util.List;
 public class AuthenticationService {
 
     private final UserRepository repository;
-    private final PrenotazioneRepository pRepo;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
+    //controllo per vedere se si è autenticato
+    public static boolean loggedIn;
+
 
     public AuthenticationResponse register(RegisterRequest request) throws Exception {
         if(!repository.findByEmail(request.getEmail()).isPresent()) {
@@ -48,7 +46,12 @@ public class AuthenticationService {
         }
     }
 
+
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+
+        //resetto sempre la variabile (non necessario)
+        loggedIn=false;
+
         //l'authentication Manager una volta passati i dati farà tutto da solo, se i dati passati come username
         //e password non fossero corretti lancerà un' eccezione.
         //System.out.println(request.getPassword());
@@ -58,16 +61,19 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
+
         //a questo punto l'utente è già stato autenticato
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow(); //non necessario dopo l'autenticazione ma messo per prevenzione
         //una volta autenticato creo il token e lo inserisco nella response
         var jwtToken = jwtService.generateToken(user);
+
+        //passa il controllo dell'autenticazione per la get
+        loggedIn=true;
+
         return AuthenticationResponse.builder()
                 //nell'autenticazione passo il token appena generato
                 .token(jwtToken)
                 .build();
     }
-
-
 }

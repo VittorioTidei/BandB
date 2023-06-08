@@ -17,4 +17,5 @@ export class LoginuserService extends User{
   loginUser(user: User): Observable<any>{
     return this.httpClient.post<User>(`${this.apiServerUrl}/auth/authenticate`, user);
   }
+
 }
