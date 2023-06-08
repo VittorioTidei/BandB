@@ -6,7 +6,6 @@ import com.unicam.bandb.userJwt.User;
 import com.unicam.bandb.userJwt.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class PrenotazioneService {
         }
         return prenotazioniDate;
     }
-     */
+    */
 
     public List<Prenotazione> getPrenotazioneByEmail (String email) throws Exception {
 
