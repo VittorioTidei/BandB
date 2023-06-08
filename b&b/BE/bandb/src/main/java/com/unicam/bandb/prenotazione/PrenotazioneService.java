@@ -94,9 +94,9 @@ public class PrenotazioneService {
         }
     }
 
-    public void adminUserByEmail(String email) throws Exception {
+    public boolean adminUserByEmail(String email) throws Exception {
         List<User> user = userRepository.findAll();
-        User admin;
+        User admin = new User();
 
         for (User u : user){
             if(u.getEmail().equals(email)){
@@ -104,10 +104,11 @@ public class PrenotazioneService {
                 admin.setRole(Role.ADMIN);
                 userRepository.delete(u);
                 userRepository.save(admin);
-            } else {
-                throw new Exception("Email not found!");
+                return true;
             }
         }
+        throw new Exception("Error");
     }
+
 }
 
