@@ -32,6 +32,14 @@ export class PrenotazioneService extends Prenotazione{
         return this.http.get<Prenotazione[]>(`${this.apiServerUrl}/prenotazione/getDate` );
     }
 
+    public getAdminByEmail(): Observable<any> {
+        return this.http.get<Boolean>(`${this.apiServerUrl}/prenotazione/getAdmin?email=${this.usersharedservice.getEmail()}` );
+    }
+
+    public addAdminByEmail(email:String): Observable<any> {
+        return this.http.put<String>(`${this.apiServerUrl}/prenotazione/admin?email=${this.usersharedservice.getAdminEmail()}`, email );
+    }
+
     public addPrenotazione(prenotazione: Prenotazione): Observable<any> {
         return this.http.post<Prenotazione>(`${this.apiServerUrl}/prenotazione/add`, prenotazione);
     }

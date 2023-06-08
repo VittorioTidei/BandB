@@ -9,7 +9,7 @@ export class userShareService {
     constructor(){}
 
     public user : User;
-
+    public adminUser : User = new User;
 getEmail(){
     return this.user.email;
 }
@@ -22,5 +22,16 @@ getUser(){
     return this.user;
 }
 
+getAdminEmail(){
+    return this.adminUser.email;
+}
+
+setAdminEmail(emailPassed: string){
+    this.adminUser.email=emailPassed;
+}
+
+getAdminUser(){
+    return this.adminUser;
+}
 }
 

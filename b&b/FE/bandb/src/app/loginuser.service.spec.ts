@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { LoginuserService } from '../service/loginuser.service';
 
 describe('LoginuserService', () => {

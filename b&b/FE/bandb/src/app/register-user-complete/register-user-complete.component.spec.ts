@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegisterUserCompleteComponent } from './register-user-complete.component';
 
 describe('RegisterUserCompleteComponent', () => {

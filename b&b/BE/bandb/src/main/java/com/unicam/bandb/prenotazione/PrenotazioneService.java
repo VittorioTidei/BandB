@@ -72,6 +72,17 @@ public class PrenotazioneService {
         return prenotazioniDate;
     }
 
+    public boolean getAdminByEmail(String email){
+        List<User> user = userRepository.findAll();
+
+        for (User u : user){
+            if(u.getEmail().equals(email) && u.getRole().equals(Role.ADMIN)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Prenotazione addNewPrenotazione(Prenotazione prenotazione) {
         prenotazioneRepository.save(prenotazione);
         return prenotazione;
@@ -99,6 +110,7 @@ public class PrenotazioneService {
             if(u.getEmail().equals(email)){
                 admin = u;
                 admin.setRole(Role.ADMIN);
+                log.info("i'm here" +admin);
                 userRepository.delete(u);
                 userRepository.save(admin);
             }

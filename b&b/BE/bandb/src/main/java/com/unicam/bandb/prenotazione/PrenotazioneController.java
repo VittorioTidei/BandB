@@ -1,5 +1,6 @@
 package com.unicam.bandb.prenotazione;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,11 @@ public class PrenotazioneController {
     @DeleteMapping("/delete")
     public void deleteUserByEmail (@RequestParam String email) throws Exception {
         prenotazioneService.deleteUserByEmail(email);
+    }
+
+    @GetMapping("/getAdmin")
+    public Boolean getAdminByEmail (@RequestParam String email) {
+        return prenotazioneService.getAdminByEmail(email);
     }
 
     @PutMapping("/admin")

@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { Prenotazione } from 'src/service/prenotazione';
 import { PrenotazioneService } from 'src/service/prenotazione.service';
 import { OnInit } from '@angular/core';
-import { UserLoginComponent } from "../user-login/user-login.component"
 import { userShareService } from 'src/service/userShareSerive';
 import { Router } from '@angular/router';
 
@@ -16,8 +15,11 @@ export class DashboardLoginComponent implements OnInit {
   prenotazione: Prenotazione = new Prenotazione(); 
     prenotazioni: Prenotazione[];
     email: String;
+    emailAdmin: string;
+    isAdmin: Boolean 
 
-    constructor(public PrenotazioneService: PrenotazioneService,private router: Router, private usershareservice: userShareService) {
+    constructor(public PrenotazioneService: PrenotazioneService,private router: Router, private usershareservice: userShareService,private renderer:Renderer2,
+      private el:ElementRef) {
     }
 
   ngOnInit(): void {
@@ -25,6 +27,30 @@ export class DashboardLoginComponent implements OnInit {
       this.prenotazioni = data;
       this.email = this.usershareservice.getEmail();
     })
+
+    this.PrenotazioneService.getAdminByEmail().subscribe(data => {
+      this.isAdmin = data;
+      if(data==true){
+        const input = this.renderer.createElement('input');
+        this.renderer.appendChild(this.el.nativeElement, input);
+      const button = this.renderer.createElement('button');
+      const buttonText = this.renderer.createText('Inserisci email da rendere admin');
+      this.renderer.appendChild(button, buttonText);
+      this.renderer.appendChild(this.el.nativeElement, button);
+      this.renderer.listen(button, 'click', () => {
+        this.emailAdmin=(input as unknown as HTMLInputElement).value;
+        this.usershareservice.setAdminEmail(this.emailAdmin);
+        this.PrenotazioneService.addAdminByEmail(this.emailAdmin).subscribe(data => {
+        alert("Account now is a Admin!");
+        },error=>alert("Error"))
+        
+      });
+      }
+    })
+
+  }
+
+  adminFromEmail(email:String){
 
   }
 
